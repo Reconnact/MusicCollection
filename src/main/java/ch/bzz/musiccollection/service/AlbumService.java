@@ -1,31 +1,31 @@
 package ch.bzz.musiccollection.service;
 
 import ch.bzz.musiccollection.data.DataHandler;
+import ch.bzz.musiccollection.model.Album;
+import ch.bzz.musiccollection.model.Artist;
 import ch.bzz.musiccollection.model.Song;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * service for reading, changing and deleting songs
+ * service for reading, changing and deleting albums
  */
-@Path("song")
-public class SongService {
+@Path("album")
+public class AlbumService {
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSongs () {
-        List<Song> songMap = DataHandler.getInstance().readAllSongs();
+    public Response listAlbums () {
+        List<Album> albumMap = DataHandler.getInstance().readAllAlbums();
         Response response = Response
                 .status(200)
-                .entity(songMap)
+                .entity(albumMap)
                 .build();
         return response;
     }
@@ -34,15 +34,15 @@ public class SongService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public  Response readSong (
-        @QueryParam("uuid") String songUUID
+            @QueryParam("uuid") String albumUUID
     ){
-        Song song = null;
+        Album album = null;
         int httpStatus;
 
         try {
-            UUID.fromString(songUUID);
-            song =  DataHandler.getInstance().readSongByUUID(songUUID);
-            if (song.getTitle() == null){
+            UUID.fromString(albumUUID);
+            album =  DataHandler.getInstance().readAlbumByUUID(albumUUID);
+            if (album.getTitle() == null){
                 httpStatus = 400;
             } else {
                 httpStatus = 200;
@@ -53,7 +53,7 @@ public class SongService {
 
         Response response = Response
                 .status(200)
-                .entity(song)
+                .entity(album)
                 .build();
         return response;
     }

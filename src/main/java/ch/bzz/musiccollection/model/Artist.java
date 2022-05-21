@@ -10,7 +10,7 @@ public class Artist {
     private String firstName;
     private String lastName;
     private String artistName;
-    private LocalDate birthday;
+    private String birthday;
 
     public String getArtistUUID() {
         return artistUUID;
@@ -44,11 +44,11 @@ public class Artist {
         this.artistName = artistName;
     }
 
-    public LocalDate getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 }

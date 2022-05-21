@@ -25,7 +25,7 @@ public class DataHandler {
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setSongList(new ArrayList<>());
+        setAlbumList(new ArrayList<>());
         readAlbumJSON();
         setSongList(new ArrayList<>());
         readSongJSON();
@@ -69,7 +69,6 @@ public class DataHandler {
      * @return list of albums
      */
     public List<Album> readAllAlbums() {
-
         return getAlbumList();
     }
 
@@ -112,10 +111,9 @@ public class DataHandler {
      */
     private void readAlbumJSON() {
         try {
+            String path = Config.getProperty("albumJSON");
             byte[] jsonData = Files.readAllBytes(
-                    Paths.get(
-                            Config.getProperty("albumJSON")
-                    )
+                    Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
             Album[] albums = objectMapper.readValue(jsonData, Album[].class);
