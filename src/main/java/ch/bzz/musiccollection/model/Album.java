@@ -33,7 +33,7 @@ public class Album {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(String  releaseDate) {
         this.releaseDate = releaseDate;
     }
 

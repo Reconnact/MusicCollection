@@ -30,6 +30,7 @@ public class Config extends Application {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(SongService.class);
         providers.add(AlbumService.class);
+        providers.add(ArtistService.class);
         providers.add(TestService.class);
         return providers;
     }

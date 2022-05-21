@@ -52,7 +52,7 @@ public class AlbumService {
         }
 
         Response response = Response
-                .status(200)
+                .status(httpStatus)
                 .entity(album)
                 .build();
         return response;

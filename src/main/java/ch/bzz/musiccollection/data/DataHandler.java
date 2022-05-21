@@ -1,6 +1,7 @@
 package ch.bzz.musiccollection.data;
 
 import ch.bzz.musiccollection.model.Album;
+import ch.bzz.musiccollection.model.Artist;
 import ch.bzz.musiccollection.model.Song;
 import ch.bzz.musiccollection.service.Config;
 
@@ -16,8 +17,8 @@ import java.util.List;
  * reads and writes the data in the JSON-files
  */
 public class DataHandler {
-    //TODO: ARTIST
     private static DataHandler instance = null;
+    private List<Artist> artistList;
     private List<Song> songList;
     private List<Album> albumList;
 
@@ -29,6 +30,9 @@ public class DataHandler {
         readAlbumJSON();
         setSongList(new ArrayList<>());
         readSongJSON();
+        setArtistList(new ArrayList<>());
+        readArtistJSON();
+
     }
 
     /**
@@ -88,6 +92,29 @@ public class DataHandler {
     }
 
     /**
+     * reads all artists
+     * @return list of artists
+     */
+    public List<Artist> readAllArtists() {
+        return getArtistList();
+    }
+
+    /**
+     * reads a artist by its uuid
+     * @param artistUUID
+     * @return the artist (null=not found)
+     */
+    public Artist readArtistByUUID(String artistUUID) {
+        Artist artist = null;
+        for (Artist entry : getArtistList()) {
+            if (entry.getArtistUUID().equals(artistUUID)) {
+                artist = entry;
+            }
+        }
+        return artist;
+    }
+
+    /**
      * reads the songs the JSON-file
      */
     private void readSongJSON() {
@@ -124,6 +151,26 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * reads the artists the JSON-file
+     */
+    private void readArtistJSON() {
+        try {
+            String path = Config.getProperty("artistJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Artist[] artists = objectMapper.readValue(jsonData, Artist[].class);
+            for (Artist artist : artists) {
+                getArtistList().add(artist);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     /**
      * gets songList
      *
@@ -158,5 +205,23 @@ public class DataHandler {
      */
     private void setAlbumList(List<Album> albumList) {
         this.albumList = albumList;
+    }
+
+    /**
+     * gets artistList
+     *
+     * @return value of artistList
+     */
+    private List<Artist> getArtistList() {
+        return artistList;
+    }
+
+    /**
+     * sets artistList
+     *
+     * @param artistList the value to set
+     */
+    private void setArtistList(List<Artist> artistList) {
+        this.artistList = artistList;
     }
 }

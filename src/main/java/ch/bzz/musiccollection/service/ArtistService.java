@@ -1,31 +1,26 @@
 package ch.bzz.musiccollection.service;
 
 import ch.bzz.musiccollection.data.DataHandler;
-import ch.bzz.musiccollection.model.Song;
+import ch.bzz.musiccollection.model.Album;
+import ch.bzz.musiccollection.model.Artist;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * service for reading, changing and deleting songs
- */
-@Path("song")
-public class SongService {
+@Path("artist")
+public class ArtistService {
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listSongs () {
-        List<Song> songMap = DataHandler.getInstance().readAllSongs();
+    public Response listArtists () {
+        List<Artist> artistsMap = DataHandler.getInstance().readAllArtists();
         Response response = Response
                 .status(200)
-                .entity(songMap)
+                .entity(artistsMap)
                 .build();
         return response;
     }
@@ -34,15 +29,15 @@ public class SongService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public  Response readSong (
-        @QueryParam("uuid") String songUUID
+            @QueryParam("uuid") String artistUUID
     ){
-        Song song = null;
+        Artist artist = null;
         int httpStatus;
 
         try {
-            UUID.fromString(songUUID);
-            song =  DataHandler.getInstance().readSongByUUID(songUUID);
-            if (song.getTitle() == null){
+            UUID.fromString(artistUUID);
+            artist =  DataHandler.getInstance().readArtistByUUID(artistUUID);
+            if (artist.getArtistName() == null){
                 httpStatus = 400;
             } else {
                 httpStatus = 200;
@@ -53,7 +48,7 @@ public class SongService {
 
         Response response = Response
                 .status(httpStatus)
-                .entity(song)
+                .entity(artist)
                 .build();
         return response;
     }
