@@ -13,6 +13,10 @@ import java.util.UUID;
 @Path("artist")
 public class ArtistService {
 
+    /**
+     * function for showing all artists in JSON format
+     * @return
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +29,11 @@ public class ArtistService {
         return response;
     }
 
+    /**
+     * function for showing one artist chosen by uuid in JSON format
+     * @param artistUUID
+     * @return
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,8 +46,8 @@ public class ArtistService {
         try {
             UUID.fromString(artistUUID);
             artist =  DataHandler.getInstance().readArtistByUUID(artistUUID);
-            if (artist.getArtistName() == null){
-                httpStatus = 400;
+            if (artist == null){
+                httpStatus = 404;
             } else {
                 httpStatus = 200;
             }

@@ -18,6 +18,10 @@ import java.util.UUID;
 @Path("album")
 public class AlbumService {
 
+    /**
+     * function for showing all albums in JSON format
+     * @return
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -30,6 +34,11 @@ public class AlbumService {
         return response;
     }
 
+    /**
+     * function for showing one album chosen by uuid in JSON format
+     * @param albumUUID
+     * @return
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
@@ -42,8 +51,8 @@ public class AlbumService {
         try {
             UUID.fromString(albumUUID);
             album =  DataHandler.getInstance().readAlbumByUUID(albumUUID);
-            if (album.getTitle() == null){
-                httpStatus = 400;
+            if (album == null){
+                httpStatus = 404;
             } else {
                 httpStatus = 200;
             }
