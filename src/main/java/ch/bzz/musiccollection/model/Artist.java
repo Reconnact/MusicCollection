@@ -90,6 +90,10 @@ public class Artist {
      * @param birthday
      */
     public void setBirthday(LinkedHashMap<String, Integer> birthday) {
-        this.birthday = LocalDate.of(birthday.get("year"), birthday.get("month"), birthday.get("day"));
+        if (birthday.get("year") != null) {
+            this.birthday = LocalDate.of(birthday.get("year"), birthday.get("month"), birthday.get("day"));
+        }else{
+            this.birthday = null;
+        }
     }
 }

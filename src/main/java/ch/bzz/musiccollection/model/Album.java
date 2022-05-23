@@ -61,7 +61,11 @@ public class Album {
      * @param releaseDate
      */
     public void setReleaseDate (LinkedHashMap<String, Integer> releaseDate) {
-        this.releaseDate = LocalDate.of(releaseDate.get("year"), releaseDate.get("month"), releaseDate.get("day"));
+        if (releaseDate.get("year") != null) {
+            this.releaseDate = LocalDate.of(releaseDate.get("year"), releaseDate.get("month"), releaseDate.get("day"));
+        }else{
+            this.releaseDate = null;
+        }
     }
 
     /**
@@ -77,16 +81,6 @@ public class Album {
      * @param songList
      */
     public void setSongList(ArrayList<Song> songList) {
-        /**ListIterator<LinkedHashMap<String, String>> iter = songList.listIterator();
-        while (iter.hasNext()) {
-            Song song = new Song();
-            LinkedHashMap<String, String> current = iter.next();
-            song.setSongUUID(current.get("songUUID"));
-            song.setLength(current.get("length"));
-            song.setTitle(current.get("title"));
-                this.songList.add(song);
-        }
-        System.out.println(songList);*/
         this.songList = songList;
     }
 
