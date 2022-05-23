@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 /**
  * A song in the collection
@@ -13,6 +13,7 @@ public class Album {
     private String albumUUID;
     private String title;
     private LocalDate releaseDate;
+    private ArrayList<Song> songList = new ArrayList<Song>();
     private Artist artist;
 
     /**
@@ -61,6 +62,32 @@ public class Album {
      */
     public void setReleaseDate (LinkedHashMap<String, Integer> releaseDate) {
         this.releaseDate = LocalDate.of(releaseDate.get("year"), releaseDate.get("month"), releaseDate.get("day"));
+    }
+
+    /**
+     * gets songList
+     * @return
+     */
+    public ArrayList<Song> getSongList() {
+        return songList;
+    }
+
+    /**
+     * sets songList
+     * @param songList
+     */
+    public void setSongList(ArrayList<Song> songList) {
+        /**ListIterator<LinkedHashMap<String, String>> iter = songList.listIterator();
+        while (iter.hasNext()) {
+            Song song = new Song();
+            LinkedHashMap<String, String> current = iter.next();
+            song.setSongUUID(current.get("songUUID"));
+            song.setLength(current.get("length"));
+            song.setTitle(current.get("title"));
+                this.songList.add(song);
+        }
+        System.out.println(songList);*/
+        this.songList = songList;
     }
 
     /**
