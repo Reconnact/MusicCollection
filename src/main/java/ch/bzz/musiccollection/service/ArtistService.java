@@ -1,7 +1,6 @@
 package ch.bzz.musiccollection.service;
 
 import ch.bzz.musiccollection.data.DataHandler;
-import ch.bzz.musiccollection.model.Album;
 import ch.bzz.musiccollection.model.Artist;
 
 import javax.ws.rs.*;

@@ -1,8 +1,5 @@
 package ch.bzz.musiccollection.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-
 import java.time.LocalDate;
 import java.util.*;
 

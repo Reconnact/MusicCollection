@@ -2,13 +2,10 @@ package ch.bzz.musiccollection.service;
 
 import ch.bzz.musiccollection.data.DataHandler;
 import ch.bzz.musiccollection.model.Album;
-import ch.bzz.musiccollection.model.Artist;
-import ch.bzz.musiccollection.model.Song;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
