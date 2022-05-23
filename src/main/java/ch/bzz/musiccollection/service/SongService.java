@@ -57,7 +57,7 @@ public class SongService {
             } else {
                 httpStatus = 200;
             }
-        } catch (IllegalAccessError argEx){
+        } catch (IllegalArgumentException argEx){
             httpStatus = 400;
         }
 

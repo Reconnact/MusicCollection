@@ -94,7 +94,6 @@ public class Artist {
             this.birthday = LocalDate.of(birthday.get("year"), birthday.get("month"), birthday.get("day"));
         }else{
             this.birthday = null;
-
         }
     }
 }
