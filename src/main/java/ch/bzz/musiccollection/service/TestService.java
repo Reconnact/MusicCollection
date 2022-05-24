@@ -24,6 +24,6 @@ public class TestService {
         return Response
                 .status(200)
                 .entity("Test erfolgreich")
-                .build();
+                .build();   
     }
 }

@@ -1,18 +1,18 @@
 {
-	"id": "97a610b1-8f34-4d3a-88e6-70a215ef461d",
+	"id": "11aadea5-2857-4ece-9934-70308c1b4236",
 	"name": "MusicCollection",
-	"timestamp": "2022-05-23T17:58:11.469Z",
+	"timestamp": "2022-05-24T06:43:04.766Z",
 	"collection_id": "051967de-cb46-4a7a-8793-128b1ff43cd6",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 18,
+	"totalPass": 15,
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "0b7df784-9923-4960-9392-b634276b47a1",
 			"name": "0.1 TestService",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/test/test",
-			"time": 138,
+			"time": 1079,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -20,7 +20,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				138
+				1079
 			],
 			"allTests": [
 				{}
@@ -30,7 +30,7 @@
 			"id": "7d9a9adc-b91e-4a8a-9a92-44dd70fc130c",
 			"name": "1.1 Songlist",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/list",
-			"time": 1513,
+			"time": 2106,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -50,7 +50,7 @@
 				}
 			},
 			"times": [
-				1513
+				2106
 			],
 			"allTests": [
 				{
@@ -63,213 +63,6 @@
 			"id": "fe740810-5049-4636-bf29-212da1a40297",
 			"name": "1.2 read song",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d28",
-			"time": 28,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"validate response": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"validate response": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				28
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"validate response": true
-				}
-			]
-		},
-		{
-			"id": "1138d6f0-0a95-4594-87a9-a925499edda2",
-			"name": "1.3 read unknown song",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-			"time": 11,
-			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				11
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "8a0f8d58-6ceb-4db3-842e-dd0916a5ffa1",
-			"name": "1.4 read wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de",
-			"time": 12,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "e66507d6-e392-406f-91e5-bf640e26e49d",
-			"name": "2.1 Albumlist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/list",
-			"time": 123,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"validate response": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"validate response": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				123
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"validate response": true
-				}
-			]
-		},
-		{
-			"id": "ecab919c-17d7-4e8a-ba57-0e0b44958883",
-			"name": "2.2 read album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
-			"time": 12,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"validate response": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"validate response": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"validate response": true
-				}
-			]
-		},
-		{
-			"id": "526d1135-9451-40fa-bb38-837f9c5e6582",
-			"name": "2.3 read unknown album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-			"time": 18,
-			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				18
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "cfe85d20-3de1-4a47-8a9f-9c0df89e4a14",
-			"name": "2.4 read wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=decd83de",
-			"time": 14,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				14
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "4758998c-0431-41ae-9ca7-0434d1d68546",
-			"name": "3.1 Artistlist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/list",
 			"time": 25,
 			"responseCode": {
 				"code": 200,
@@ -300,10 +93,37 @@
 			]
 		},
 		{
-			"id": "3ccd396f-8676-4b19-943a-597108923c72",
-			"name": "3.2 read artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-			"time": 13,
+			"id": "1138d6f0-0a95-4594-87a9-a925499edda2",
+			"name": "1.3 read unknown song",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+			"time": 19,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e66507d6-e392-406f-91e5-bf640e26e49d",
+			"name": "2.1 Albumlist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/list",
+			"time": 227,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -323,7 +143,7 @@
 				}
 			},
 			"times": [
-				13
+				227
 			],
 			"allTests": [
 				{
@@ -333,10 +153,43 @@
 			]
 		},
 		{
-			"id": "41d992a8-73aa-4230-8d45-8db3e882efac",
-			"name": "3.3 read unknown artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-			"time": 16,
+			"id": "ecab919c-17d7-4e8a-ba57-0e0b44958883",
+			"name": "2.2 read album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
+			"time": 24,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"validate response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"validate response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				24
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"validate response": true
+				}
+			]
+		},
+		{
+			"id": "526d1135-9451-40fa-bb38-837f9c5e6582",
+			"name": "2.3 read unknown album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+			"time": 23,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -351,7 +204,7 @@
 				}
 			},
 			"times": [
-				16
+				23
 			],
 			"allTests": [
 				{
@@ -360,13 +213,79 @@
 			]
 		},
 		{
-			"id": "0502fd90-58c4-4e85-a48d-e66c74e5a454",
-			"name": "3.4 read wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=decd83de",
-			"time": 70,
+			"id": "4758998c-0431-41ae-9ca7-0434d1d68546",
+			"name": "3.1 Artistlist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/list",
+			"time": 16,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"validate response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"validate response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"validate response": true
+				}
+			]
+		},
+		{
+			"id": "3ccd396f-8676-4b19-943a-597108923c72",
+			"name": "3.2 read artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+			"time": 31,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"validate response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"validate response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				31
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"validate response": true
+				}
+			]
+		},
+		{
+			"id": "41d992a8-73aa-4230-8d45-8db3e882efac",
+			"name": "3.3 read unknown artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+			"time": 20,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
 			},
 			"tests": {
 				"Status test": true
@@ -378,7 +297,7 @@
 				}
 			},
 			"times": [
-				70
+				20
 			],
 			"allTests": [
 				{
@@ -388,7 +307,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 1993,
+	"totalTime": 3570,
 	"collection": {
 		"requests": [
 			{
@@ -408,10 +327,6 @@
 				"method": "GET"
 			},
 			{
-				"id": "8a0f8d58-6ceb-4db3-842e-dd0916a5ffa1",
-				"method": "GET"
-			},
-			{
 				"id": "e66507d6-e392-406f-91e5-bf640e26e49d",
 				"method": "GET"
 			},
@@ -424,10 +339,6 @@
 				"method": "GET"
 			},
 			{
-				"id": "cfe85d20-3de1-4a47-8a9f-9c0df89e4a14",
-				"method": "GET"
-			},
-			{
 				"id": "4758998c-0431-41ae-9ca7-0434d1d68546",
 				"method": "GET"
 			},
@@ -437,10 +348,6 @@
 			},
 			{
 				"id": "41d992a8-73aa-4230-8d45-8db3e882efac",
-				"method": "GET"
-			},
-			{
-				"id": "0502fd90-58c4-4e85-a48d-e66c74e5a454",
 				"method": "GET"
 			}
 		]

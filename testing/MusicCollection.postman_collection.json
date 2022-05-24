@@ -157,47 +157,6 @@
 			"response": []
 		},
 		{
-			"name": "1.4 read wrong uuid",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(400);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"song",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "2.1 Albumlist",
 			"event": [
 				{
@@ -327,47 +286,6 @@
 			"response": []
 		},
 		{
-			"name": "2.4 read wrong uuid",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(400);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=decd83de",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"album",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "3.1 Artistlist",
 			"event": [
 				{
@@ -490,47 +408,6 @@
 						{
 							"key": "uuid",
 							"value": "decd83de-b21f-4ad0-82ea-293118156036"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.4 read wrong uuid",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(400);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=decd83de",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"artist",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de"
 						}
 					]
 				}
