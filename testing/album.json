@@ -7,11 +7,7 @@
             "month": 3,
             "day": 13
         },
-        "songList": [{
-        "songUUID": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
-        "title": "NGx3",
-        "length": "04:04"
-        }],
+        "songUUIDList": ["e522fa82-fed7-422e-8d0c-d76dc46b6d28"],
         "artist": {
             "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036",
             "firstName": "David",
@@ -27,11 +23,7 @@
             "month": 4,
             "day": 29
         },
-        "songList": [{
-            "songUUID": "71000b3a-d87f-488d-8f0f-a16b6ef9890b",
-            "title": "Guten Abend, Hip Hop - Intro",
-            "length": "03:11"
-        }],
+        "songUUIDList": ["71000b3a-d87f-488d-8f0f-a16b6ef9890b"],
         "artist": {
             "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036",
             "firstName": "David",
@@ -47,16 +39,7 @@
             "month": 4,
             "day": 26
         },
-        "songList": [{
-            "songUUID": "124f4b4a-c904-478f-bdda-3c2fd4a95d9c",
-            "title": "Steig ein!",
-            "length": "03:37"
-        },
-        {
-            "songUUID": "17ef82c4-2eb6-4711-8c74-ad6f610fc5ad",
-            "title": "Mein Block",
-            "length": "04:08"
-        }],
+        "songUUIDList": ["17ef82c4-2eb6-4711-8c74-ad6f610fc5ad","124f4b4a-c904-478f-bdda-3c2fd4a95d9c"],
         "artist": {
             "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036",
             "firstName": "Paul",
@@ -77,11 +60,7 @@
             "month": 8,
             "day": 17
         },
-        "songList": [{
-            "songUUID": "80cef1fc-8179-40bd-94ba-4246244cfca0",
-            "title": "Star Shopping",
-            "length": "02:22"
-        }],
+        "songUUIDList": ["80cef1fc-8179-40bd-94ba-4246244cfca0"],
         "artist": {
             "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
             "firstName": "Gustav Elijah",
@@ -102,11 +81,7 @@
             "month": 11,
             "day": 9
         },
-        "songList": [{
-            "songUUID": "8bd155f7-92df-49dc-8127-efb0ab04b0b5",
-            "title": "Broken Smile (My All)",
-            "length": "04:40"
-        }],
+        "songUUIDList": ["8bd155f7-92df-49dc-8127-efb0ab04b0b5"],
         "artist": {
             "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
             "firstName": "Gustav Elijah",

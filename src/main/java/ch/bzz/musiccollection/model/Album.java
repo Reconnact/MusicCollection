@@ -1,5 +1,8 @@
 package ch.bzz.musiccollection.model;
 
+import ch.bzz.musiccollection.data.DataHandler;
+
+import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -62,6 +65,14 @@ public class Album {
             this.releaseDate = LocalDate.of(releaseDate.get("year"), releaseDate.get("month"), releaseDate.get("day"));
         }else{
             this.releaseDate = null;
+        }
+    }
+
+    public void setSongUUIDList(ArrayList<String> songUUIDList){
+        ListIterator<String> iterator = songUUIDList.listIterator();
+        while (iterator.hasNext()){
+            Song song = DataHandler.getInstance().readSongByUUID(iterator.next());
+            songList.add(song);
         }
     }
 
