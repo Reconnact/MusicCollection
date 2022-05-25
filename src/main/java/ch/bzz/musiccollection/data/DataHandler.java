@@ -5,9 +5,13 @@ import ch.bzz.musiccollection.model.Artist;
 import ch.bzz.musiccollection.model.Song;
 import ch.bzz.musiccollection.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import javax.xml.crypto.Data;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -17,39 +21,22 @@ import java.util.List;
  * reads and writes the data in the JSON-files
  */
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Artist> artistList;
-    private List<Song> songList;
-    private List<Album> albumList;
+    private static List<Artist> artistList;
+    private static List<Song> songList;
+    private static List<Album> albumList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setAlbumList(new ArrayList<>());
-        readAlbumJSON();
-        setSongList(new ArrayList<>());
-        readSongJSON();
-        setArtistList(new ArrayList<>());
-        readArtistJSON();
 
-    }
-
-    /**
-     * gets the only instance of this class
-     * @return
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
     }
 
     /**
      * reads all songs
      * @return list of songs
      */
-    public List<Song> readAllSongs() {
+    public static List<Song> readAllSongs() {
         return getSongList();
     }
 
@@ -58,7 +45,7 @@ public class DataHandler {
      * @param songUUID
      * @return the Song (null=not found)
      */
-    public Song readSongByUUID(String songUUID) {
+    public static Song readSongByUUID(String songUUID) {
         Song song = null;
         for (Song entry : getSongList()) {
             if (entry.getSongUUID().equals(songUUID)) {
@@ -69,10 +56,43 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new song into the songList
+     *
+     * @param song the song to be saved
+     */
+    public static void insertSong(Song song) {
+        getSongList().add(song);
+        writeSongJSON();
+    }
+
+    /**
+     * updates the songList
+     */
+    public static void updateSong() {
+        writeSongJSON();
+    }
+
+    /**
+     * deletes a song identified by the songUUID
+     * @param songUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteSong(String songUUID) {
+        Song song = readSongByUUID(songUUID);
+        if (song != null) {
+            getSongList().remove(song);
+            writeSongJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * reads all albums
      * @return list of albums
      */
-    public List<Album> readAllAlbums() {
+    public static List<Album> readAllAlbums() {
         return getAlbumList();
     }
 
@@ -81,7 +101,7 @@ public class DataHandler {
      * @param albumUUID
      * @return the album (null=not found)
      */
-    public Album readAlbumByUUID(String albumUUID) {
+    public static Album readAlbumByUUID(String albumUUID) {
         Album album = null;
         for (Album entry : getAlbumList()) {
             if (entry.getAlbumUUID().equals(albumUUID)) {
@@ -95,7 +115,7 @@ public class DataHandler {
      * reads all artists
      * @return list of artists
      */
-    public List<Artist> readAllArtists() {
+    public static List<Artist> readAllArtists() {
         return getArtistList();
     }
 
@@ -104,7 +124,7 @@ public class DataHandler {
      * @param artistUUID
      * @return the artist (null=not found)
      */
-    public Artist readArtistByUUID(String artistUUID) {
+    public static Artist readArtistByUUID(String artistUUID) {
         Artist artist = null;
         for (Artist entry : getArtistList()) {
             if (entry.getArtistUUID().equals(artistUUID)) {
@@ -117,7 +137,7 @@ public class DataHandler {
     /**
      * reads the songs the JSON-file
      */
-    private void readSongJSON() {
+    private static void readSongJSON() {
         try {
             String path = Config.getProperty("songJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -134,9 +154,28 @@ public class DataHandler {
     }
 
     /**
+     * writes the songList to the JSON-file
+     */
+    private static void writeSongJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String songPath = Config.getProperty("songJSON");
+        try {
+            fileOutputStream = new FileOutputStream(songPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getSongList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * reads the albums from the JSON-file
      */
-    private void readAlbumJSON() {
+    private static void readAlbumJSON() {
         try {
             String path = Config.getProperty("albumJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -155,7 +194,7 @@ public class DataHandler {
     /**
      * reads the artists the JSON-file
      */
-    private void readArtistJSON() {
+    private static void readArtistJSON() {
         try {
             String path = Config.getProperty("artistJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -176,7 +215,11 @@ public class DataHandler {
      *
      * @return value of songList
      */
-    private List<Song> getSongList() {
+    private static List<Song> getSongList() {
+        if (songList == null) {
+            setSongList(new ArrayList<>());
+            readSongJSON();
+        }
         return songList;
     }
 
@@ -185,8 +228,8 @@ public class DataHandler {
      *
      * @param songList the value to set
      */
-    private void setSongList(List<Song> songList) {
-        this.songList = songList;
+    private static void setSongList(List<Song> songList) {
+        DataHandler.songList = songList;
     }
 
     /**
@@ -194,7 +237,11 @@ public class DataHandler {
      *
      * @return value of albumList
      */
-    private List<Album> getAlbumList() {
+    private static List<Album> getAlbumList() {
+        if (albumList == null) {
+            setAlbumList(new ArrayList<>());
+            readAlbumJSON();
+        }
         return albumList;
     }
 
@@ -203,8 +250,8 @@ public class DataHandler {
      *
      * @param albumList the value to set
      */
-    private void setAlbumList(List<Album> albumList) {
-        this.albumList = albumList;
+    private static void setAlbumList(List<Album> albumList) {
+        DataHandler.albumList = albumList;
     }
 
     /**
@@ -212,7 +259,11 @@ public class DataHandler {
      *
      * @return value of artistList
      */
-    private List<Artist> getArtistList() {
+    private static List<Artist> getArtistList() {
+        if (artistList == null) {
+            setArtistList(new ArrayList<>());
+            readArtistJSON();
+        }
         return artistList;
     }
 
@@ -221,7 +272,7 @@ public class DataHandler {
      *
      * @param artistList the value to set
      */
-    private void setArtistList(List<Artist> artistList) {
-        this.artistList = artistList;
+    private static void setArtistList(List<Artist> artistList) {
+        DataHandler.artistList = artistList;
     }
 }

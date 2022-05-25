@@ -71,7 +71,7 @@ public class Album {
     public void setSongUUIDList(ArrayList<String> songUUIDList){
         ListIterator<String> iterator = songUUIDList.listIterator();
         while (iterator.hasNext()){
-            Song song = DataHandler.getInstance().readSongByUUID(iterator.next());
+            Song song = DataHandler.readSongByUUID(iterator.next());
             songList.add(song);
         }
     }

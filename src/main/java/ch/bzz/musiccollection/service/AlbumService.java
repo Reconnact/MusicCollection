@@ -23,7 +23,7 @@ public class AlbumService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listAlbums () {
-        List<Album> albumMap = DataHandler.getInstance().readAllAlbums();
+        List<Album> albumMap = DataHandler.readAllAlbums();
         Response response = Response
                 .status(200)
                 .entity(albumMap)
@@ -47,7 +47,7 @@ public class AlbumService {
 
         try {
             UUID.fromString(albumUUID);
-            album =  DataHandler.getInstance().readAlbumByUUID(albumUUID);
+            album =  DataHandler.readAlbumByUUID(albumUUID);
             if (album == null){
                 httpStatus = 404;
             } else {

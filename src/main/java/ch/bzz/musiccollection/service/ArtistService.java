@@ -20,7 +20,7 @@ public class ArtistService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listArtists () {
-        List<Artist> artistsMap = DataHandler.getInstance().readAllArtists();
+        List<Artist> artistsMap = DataHandler.readAllArtists();
         Response response = Response
                 .status(200)
                 .entity(artistsMap)
@@ -44,7 +44,7 @@ public class ArtistService {
 
         try {
             UUID.fromString(artistUUID);
-            artist =  DataHandler.getInstance().readArtistByUUID(artistUUID);
+            artist =  DataHandler.readArtistByUUID(artistUUID);
             if (artist == null){
                 httpStatus = 404;
             } else {
