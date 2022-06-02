@@ -2,7 +2,9 @@ package ch.bzz.musiccollection.service;
 
 import ch.bzz.musiccollection.data.DataHandler;
 import ch.bzz.musiccollection.model.Song;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -41,21 +43,14 @@ public class SongService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public  Response readSong (
+        @NotEmpty
+        @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
         @QueryParam("uuid") String songUUID
     ){
-        Song song = null;
-        int httpStatus;
-
-        try {
-            UUID.fromString(songUUID);
-            song =  DataHandler.readSongByUUID(songUUID);
-            if (song == null){
-                httpStatus = 404;
-            } else {
-                httpStatus = 200;
-            }
-        } catch (IllegalArgumentException argEx){
-            httpStatus = 400;
+        int httpStatus = 200;
+        Song song =  DataHandler.readSongByUUID(songUUID);
+        if (song == null) {
+            httpStatus = 410;
         }
 
         Response response = Response

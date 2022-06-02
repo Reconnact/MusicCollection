@@ -6,6 +6,7 @@ import ch.bzz.musiccollection.model.Artist;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,7 +37,7 @@ public class ArtistService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public  Response readSong (
+    public  Response readArtist (
             @QueryParam("uuid") String artistUUID
     ){
         Artist artist = null;
@@ -60,4 +61,98 @@ public class ArtistService {
                 .build();
         return response;
     }
+
+    /**
+     * creates a new artist
+     * important: the birthday has to follow the ISO_LOCAL_DATE format (yyyy-mm-dd)
+     * @param firstName
+     * @param lastName
+     * @param artistName
+     * @param birthday
+     * @return
+     */
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertArtist(
+            @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("artistName") String artistName,
+            @FormParam("birthday") String birthday
+    ){
+        Artist artist = new Artist();
+        artist.setArtistUUID(UUID.randomUUID().toString());
+        artist.setFirstName(firstName);
+        artist.setLastName(lastName);
+        artist.setArtistName(artistName);
+       // artist.setBirthday(LocalDate.parse(birthday));
+
+        DataHandler.insertArtist(artist);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+
+    /**
+     * updates existing artist
+     * important: the birthday has to follow the ISO_LOCAL_DATE format (yyyy-mm-dd)
+     * @param artistUUID
+     * @param firstName
+     * @param lastName
+     * @param artistName
+     * @param birthday
+     * @return
+     */
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateArtist(
+            @FormParam("artistUUID") String artistUUID,
+            @FormParam("firstName") String firstName,
+            @FormParam("lastName") String lastName,
+            @FormParam("artistName") String artistName,
+            @FormParam("birthday") String birthday
+    ){
+        int httpStatus = 200;
+        Artist artist = DataHandler.readArtistByUUID(artistUUID);
+        if (artist != null){
+            artist.setFirstName(firstName);
+            artist.setLastName(lastName);
+            artist.setArtistName(artistName);
+            //artist.setBirthdayy(LocalDate.of(2000, 8, 5));
+
+
+            DataHandler.updateArtist();
+        } else {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * deletes artist identified by its uuid
+     * @param artistUUID
+     * @return
+     */
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteArtist(
+            @QueryParam("uuid") String artistUUID
+    ){
+        int httpStatus = 200;
+        if (!DataHandler.deleteArtist(artistUUID)){
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
 }

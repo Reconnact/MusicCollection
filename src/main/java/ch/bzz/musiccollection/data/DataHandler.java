@@ -33,6 +33,15 @@ public class DataHandler {
     }
 
     /**
+     * initializes the lists
+     */
+    public static void initLists() {
+        DataHandler.setAlbumList(null);
+        DataHandler.setSongList(null);
+        DataHandler.setArtistList(null);
+    }
+
+    /**
      * reads all songs
      * @return list of songs
      */
@@ -111,6 +120,40 @@ public class DataHandler {
         return album;
     }
 
+
+    /**
+     * inserts a new album into the albumList
+     *
+     * @param album the album to be saved
+     */
+    public static void insertAlbum(Album album) {
+        getAlbumList().add(album);
+        writeAlbumJSON();
+    }
+
+    /**
+     * updates the artistList
+     */
+    public static void updateAlbum() {
+        writeAlbumJSON();
+    }
+
+    /**
+     * deletes an album identified by the albumUUID
+     * @param albumUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteAlbum(String albumUUID) {
+        Album album = readAlbumByUUID(albumUUID);
+        if (album != null) {
+            getAlbumList().remove(album);
+            writeAlbumJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * reads all artists
      * @return list of artists
@@ -132,6 +175,39 @@ public class DataHandler {
             }
         }
         return artist;
+    }
+
+    /**
+     * inserts a new artist into the artistList
+     *
+     * @param artist the artist to be saved
+     */
+    public static void insertArtist(Artist artist) {
+        getArtistList().add(artist);
+        writeArtistJSON();
+    }
+
+    /**
+     * updates the artistList
+     */
+    public static void updateArtist() {
+        writeArtistJSON();
+    }
+
+    /**
+     * deletes an artist identified by the artistUUID
+     * @param artistUUID  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteArtist(String artistUUID) {
+        Artist artist = readArtistByUUID(artistUUID);
+        if (artist != null) {
+            getArtistList().remove(artist);
+            writeArtistJSON();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -192,6 +268,25 @@ public class DataHandler {
     }
 
     /**
+     * writes the albumList to the JSON-file
+     */
+    private static void writeAlbumJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String albumPath = Config.getProperty("albumJSON");
+        try {
+            fileOutputStream = new FileOutputStream(albumPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getAlbumList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * reads the artists the JSON-file
      */
     private static void readArtistJSON() {
@@ -205,6 +300,25 @@ public class DataHandler {
             for (Artist artist : artists) {
                 getArtistList().add(artist);
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the artistList to the JSON-file
+     */
+    private static void writeArtistJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String artistPath = Config.getProperty("artistJSON");
+        try {
+            fileOutputStream = new FileOutputStream(artistPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getArtistList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -1,5 +1,11 @@
 package ch.bzz.musiccollection.model;
 
+import ch.bzz.musiccollection.util.LocalDateDeserializer;
+import ch.bzz.musiccollection.util.LocalDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
 
@@ -11,6 +17,8 @@ public class Artist {
     private String firstName;
     private String lastName;
     private String artistName;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate birthday;
 
     /**
@@ -89,11 +97,7 @@ public class Artist {
      * sets birthday with a LinkedHashMap
      * @param birthday
      */
-    public void setBirthday(LinkedHashMap<String, Integer> birthday) {
-        if (birthday.get("year") != null) {
-            this.birthday = LocalDate.of(birthday.get("year"), birthday.get("month"), birthday.get("day"));
-        }else{
-            this.birthday = null;
-        }
+    public void setBirthday(LocalDate birthday) {
+       this.birthday = birthday;
     }
 }
