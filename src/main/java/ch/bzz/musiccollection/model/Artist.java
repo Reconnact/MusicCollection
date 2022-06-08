@@ -4,7 +4,10 @@ import ch.bzz.musiccollection.util.LocalDateDeserializer;
 import ch.bzz.musiccollection.util.LocalDateSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
@@ -13,10 +16,23 @@ import java.util.LinkedHashMap;
  * A artist who has zero to multiple albums
  */
 public class Artist {
+    @FormParam("bookUUID")
+    @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String artistUUID;
+
+    @FormParam("firstName")
+    @NotEmpty
     private String firstName;
+
+    @FormParam("lastName")
+    @NotEmpty
     private String lastName;
+
+    @FormParam("artistName")
+    @NotEmpty
     private String artistName;
+
+    @FormParam("birthday")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate birthday;

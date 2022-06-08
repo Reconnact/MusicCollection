@@ -4,6 +4,7 @@ import ch.bzz.musiccollection.data.DataHandler;
 import ch.bzz.musiccollection.model.Song;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -62,22 +63,16 @@ public class SongService {
 
     /**
      * creates a new song
-     * @param title
-     * @param length
+     * @param song
      * @return
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertSong(
-            @FormParam("title") String title,
-            @FormParam("length") String length
+            @Valid @BeanParam Song song
     ){
-        Song song = new Song();
         song.setSongUUID(UUID.randomUUID().toString());
-        song.setTitle(title);
-        song.setLength(length);
-
         DataHandler.insertSong(song);
         return Response
                 .status(200)
@@ -87,25 +82,20 @@ public class SongService {
 
     /**
      * updates an existing song
-     * @param songUUID
-     * @param title
-     * @param length
+     * @param song
      * @return
      */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateSong(
-            @FormParam("songUUID") String songUUID,
-            @FormParam("title") String title,
-            @FormParam("length") String length
+            @Valid @BeanParam Song song
     ){
         int httpStatus = 200;
-        Song song = DataHandler.readSongByUUID(songUUID);
-        if (song != null){
-            song.setTitle(title);
-            song.setLength(length);
-
+        Song oldSong = DataHandler.readSongByUUID(song.getSongUUID());
+        if (oldSong != null) {
+            oldSong.setTitle(song.getTitle());
+            oldSong.setLength(song.getLength());
             DataHandler.updateSong();
         } else {
             httpStatus = 410;
@@ -125,6 +115,8 @@ public class SongService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteSong(
+            @NotEmpty
+            @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String songUUID
     ){
         int httpStatus = 200;

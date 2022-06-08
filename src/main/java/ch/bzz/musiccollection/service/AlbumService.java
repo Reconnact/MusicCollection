@@ -128,6 +128,8 @@ public class AlbumService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteAlbum(
+            @NotEmpty
+            @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String albumUUID
     ){
         int httpStatus = 200;

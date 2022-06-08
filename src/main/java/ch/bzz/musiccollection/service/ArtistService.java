@@ -2,7 +2,10 @@ package ch.bzz.musiccollection.service;
 
 import ch.bzz.musiccollection.data.DataHandler;
 import ch.bzz.musiccollection.model.Artist;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -38,6 +41,8 @@ public class ArtistService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public  Response readArtist (
+            @NotEmpty
+            @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String artistUUID
     ){
         Artist artist = null;
@@ -65,28 +70,16 @@ public class ArtistService {
     /**
      * creates a new artist
      * important: the birthday has to follow the ISO_LOCAL_DATE format (yyyy-mm-dd)
-     * @param firstName
-     * @param lastName
-     * @param artistName
-     * @param birthday
+     * @param artist
      * @return
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertArtist(
-            @FormParam("firstName") String firstName,
-            @FormParam("lastName") String lastName,
-            @FormParam("artistName") String artistName,
-            @FormParam("birthday") String birthday
+            @Valid @BeanParam Artist artist
     ){
-        Artist artist = new Artist();
         artist.setArtistUUID(UUID.randomUUID().toString());
-        artist.setFirstName(firstName);
-        artist.setLastName(lastName);
-        artist.setArtistName(artistName);
-       // artist.setBirthday(LocalDate.parse(birthday));
-
         DataHandler.insertArtist(artist);
         return Response
                 .status(200)
@@ -143,6 +136,8 @@ public class ArtistService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteArtist(
+            @NotEmpty
+            @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String artistUUID
     ){
         int httpStatus = 200;

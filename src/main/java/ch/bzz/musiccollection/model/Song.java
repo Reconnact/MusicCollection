@@ -1,11 +1,26 @@
 package ch.bzz.musiccollection.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 /**
  * A song in the collection
  */
 public class Song {
+    @FormParam("songUUID")
+    @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String songUUID;
+
+    @FormParam("title")
+    @NotEmpty
+    @Size(min=1, max=40)
     private String title;
+
+    @FormParam("length")
+    @NotEmpty
     private String length;
 
     /**
