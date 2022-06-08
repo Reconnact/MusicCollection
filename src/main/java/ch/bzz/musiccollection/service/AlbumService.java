@@ -10,7 +10,9 @@ import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.awt.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -65,21 +67,25 @@ public class AlbumService {
     /**
      * creates new album
      * important: the releaseDate has to follow the ISO_LOCAL_DATE format (yyyy-mm-dd)
-     * @param title
-     * @param releaseDate
+     * @param album
+     * @param artistUUID
      * @return
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertAlbum(
-            @FormParam("title") String title,
-            @FormParam("releaseDate") String releaseDate
+            @Valid @BeanParam Album album,
+            @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("artistUUID") String artistUUID,
+            @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("releaseDate") String releaseDate,
+            @FormParam("songUUIDList") List<String> songUUIDList
     ){
-        Album album = new Album();
         album.setAlbumUUID(UUID.randomUUID().toString());
-        album.setTitle(title);
-        //album.setReleaseDate(LocalDate.parse(releaseDate));
+        album.setArtistUUID(artistUUID);
+        album.setReleaseDateWithString(releaseDate);
+        album.setSongUUIDListWithList(songUUIDList);
         DataHandler.insertAlbum(album);
         return Response
                 .status(200)
@@ -90,25 +96,26 @@ public class AlbumService {
     /**
      * updates existing album
      * important: the releaseDate has to follow the ISO_LOCAL_DATE format (yyyy-mm-dd)
-     * @param albumUUID
-     * @param title
-     * @param releaseDate
+     * @param album
      * @return
      */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateAlbum(
-            @FormParam("albumUUID") String albumUUID,
-            @FormParam("title") String title,
-            @FormParam("releaseDate") String releaseDate
+            @Valid @BeanParam Album album,
+            @FormParam("artistUUID") String artistUUID,
+            @FormParam("releaseDate") String releaseDate,
+            @FormParam("songUUIDList") List<String> songUUIDList
     ){
         int httpStatus = 200;
-        Album album = DataHandler.readAlbumByUUID(albumUUID);
-        if (album != null){
-            album.setTitle(title);
-            //album.setReleaseDate(LocalDate.parse(releaseDate));
-
+        Album oldAlbum = DataHandler.readAlbumByUUID(album.getAlbumUUID());
+        if (oldAlbum != null) {
+            oldAlbum.setTitle(album.getTitle());
+            oldAlbum.setArtistUUID(artistUUID);
+            oldAlbum.setSongList(album.getSongList());
+            oldAlbum.setReleaseDateWithString(releaseDate);
+            oldAlbum.setSongUUIDListWithList(songUUIDList);
             DataHandler.updateAlbum();
         } else {
             httpStatus = 410;

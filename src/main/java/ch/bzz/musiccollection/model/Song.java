@@ -21,6 +21,7 @@ public class Song {
 
     @FormParam("length")
     @NotEmpty
+    @Pattern(regexp = "[0-5][0-9]:[0-5][0-9]")
     private String length;
 
     /**

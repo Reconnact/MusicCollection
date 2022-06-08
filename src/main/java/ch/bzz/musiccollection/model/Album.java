@@ -6,7 +6,11 @@ import ch.bzz.musiccollection.util.LocalDateSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.*;
@@ -15,12 +19,22 @@ import java.util.*;
  * A song in the collection
  */
 public class Album {
+    @FormParam("albumUUID")
+    @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String albumUUID;
+
+    @FormParam("title")
+    @NotEmpty
+    @Size(min=1, max=40)
     private String title;
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate releaseDate;
+
+    @JsonIgnore
     private ArrayList<Song> songList = new ArrayList<Song>();
+
     @JsonIgnore
     private Artist artist;
 
@@ -65,11 +79,15 @@ public class Album {
     }
 
     /**
-     * sets releaseDate with a LinkedHashMap
+     * sets releaseDate
      * @param releaseDate
      */
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public void setReleaseDateWithString(String releaseDate) {
+        this.releaseDate = LocalDate.parse(releaseDate);
     }
 
     public void setSongUUIDList(ArrayList<String> songUUIDList){
@@ -80,6 +98,25 @@ public class Album {
         }
     }
 
+    public ArrayList<String> getSongUUIDList(){
+        ArrayList<String> songUUIDList = new ArrayList<>();
+        ListIterator<Song> iterator = songList.listIterator();
+        while (iterator.hasNext()){
+            String songUUID = iterator.next().getSongUUID();
+            songUUIDList.add(songUUID);
+        }
+        return songUUIDList;
+    }
+
+    public void setSongUUIDListWithList(List<String> songUUIDList){
+        ArrayList<String> arrayList = new ArrayList<>();
+        ListIterator<String> iterator = songUUIDList.listIterator();
+        while (iterator.hasNext()){
+            arrayList.add(iterator.next());
+        }
+        setSongUUIDList(arrayList);
+    }
+
     /**
      * gets songList
      * @return
@@ -87,6 +124,7 @@ public class Album {
     public ArrayList<Song> getSongList() {
         return songList;
     }
+
 
     /**
      * sets songList
@@ -96,10 +134,16 @@ public class Album {
         this.songList = songList;
     }
 
+
     public void setArtistUUID(String artistUUID){
         setArtist(new Artist());
         Artist artist = DataHandler.readArtistByUUID(artistUUID);
         this.artist = artist;
+    }
+
+    public String getArtistUUID(){
+        if (getArtist()== null) return null;
+        return getArtist().getArtistUUID();
     }
 
     /**

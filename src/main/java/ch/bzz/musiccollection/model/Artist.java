@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
  * A artist who has zero to multiple albums
  */
 public class Artist {
-    @FormParam("bookUUID")
+    @FormParam("artistUUID")
     @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String artistUUID;
 
@@ -32,7 +32,6 @@ public class Artist {
     @NotEmpty
     private String artistName;
 
-    @FormParam("birthday")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate birthday;
@@ -110,10 +109,18 @@ public class Artist {
     }
 
     /**
-     * sets birthday with a LinkedHashMap
+     * sets birthday
      * @param birthday
      */
     public void setBirthday(LocalDate birthday) {
        this.birthday = birthday;
+    }
+
+    /**
+     * sets birthday with string
+     * @param birthday
+     */
+    public void setBirthdayWithString(String birthday) {
+        this.birthday = LocalDate.parse(birthday);
     }
 }
