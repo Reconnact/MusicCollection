@@ -2,96 +2,37 @@
     {
         "albumUUID": "a8de6e04-b6e4-4009-851f-55ba0405bb18",
         "title": "Brot & Spiele",
-        "releaseDate": {
-            "year": 2020,
-            "month": 3,
-            "day": 13
-        },
+        "releaseDate": "2020-03-13",
         "songUUIDList": ["e522fa82-fed7-422e-8d0c-d76dc46b6d28"],
-        "artist": {
-            "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036",
-            "firstName": "David",
-            "lastName": "Bosnjak",
-            "artistName": "Haze"
-        }
+        "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036"
     },
     {
         "albumUUID": "80c11f8f-f32c-428a-9ea6-e88260664268",
         "title": "Guten Abend, Hip Hop ...",
-        "releaseDate": {
-            "year": 2016,
-            "month": 4,
-            "day": 29
-        },
+        "releaseDate": "2016-04-29",
         "songUUIDList": ["71000b3a-d87f-488d-8f0f-a16b6ef9890b"],
-        "artist": {
-            "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036",
-            "firstName": "David",
-            "lastName": "Bosnjak",
-            "artistName": "Haze"
-        }
+        "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036"
     },
     {
         "albumUUID": "f0069bd6-36f2-4ff3-898c-a6e78c603911",
         "title": "Maske X",
-        "releaseDate": {
-            "year": 2004,
-            "month": 4,
-            "day": 26
-        },
+        "releaseDate": "2004-04-26",
         "songUUIDList": ["17ef82c4-2eb6-4711-8c74-ad6f610fc5ad","124f4b4a-c904-478f-bdda-3c2fd4a95d9c"],
-        "artist": {
-            "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036",
-            "firstName": "Paul",
-            "lastName": "Hartmut",
-            "artistName": "Sido",
-            "birthday": {
-                "year": 1980,
-                "month": 11,
-                "day": 30         
-            }
-        }
+        "artistUUID": "decd83de-b21f-4ad0-82ea-293118156036"
     },
     {
         "albumUUID": "bf3ac8b2-66f5-4e10-851f-e997958ecd75",
         "title": "Star Shopping",
-        "releaseDate": {
-            "year": 2015,
-            "month": 8,
-            "day": 17
-        },
+        "releaseDate": "2015-08-17",
         "songUUIDList": ["80cef1fc-8179-40bd-94ba-4246244cfca0"],
-        "artist": {
-            "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
-            "firstName": "Gustav Elijah",
-            "lastName": "Ahr",
-            "artistName": "Lil Peep",
-            "birthday": {
-                "year": 1996,
-                "month": 11,
-                "day": 1         
-            }
-        }
+        "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7"
     },
     {
         "albumUUID": "e8637518-922f-4c97-bc4b-5c362ea95a67",
         "title": "Come Over When You're Sober, Pt. 2",
-        "releaseDate": {
-            "year": 2018,
-            "month": 11,
-            "day": 9
-        },
+        "releaseDate": "2018-11-09",
         "songUUIDList": ["8bd155f7-92df-49dc-8127-efb0ab04b0b5"],
-        "artist": {
-            "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
-            "firstName": "Gustav Elijah",
-            "lastName": "Ahr",
-            "artistName": "Lil Peep",
-            "birthday": {
-                "year": 1996,
-                "month": 11,
-                "day": 1         
-            }
-        }
+        "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7"
     }
 ]   
+

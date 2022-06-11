@@ -4,32 +4,21 @@
         "firstName": "David",
         "lastName": "Bosnjak",
         "artistName": "Haze",
-        "birthday": {
-            "year": 1990,
-            "month": 2,
-            "day": 5         
-        }
+        "birthday": "1990-02-05"
     },
     {
         "artistUUID": "73ed01c3-d2da-4726-813e-cc52790b9261",
         "firstName": "Paul",
         "lastName": "Hartmut",
         "artistName": "Sido",
-        "birthday": {
-            "year": 1980,
-            "month": 11,
-            "day": 30         
-        }
+        "birthday": "1980-11-30"
     },
     {
         "artistUUID": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
         "firstName": "Gustav Elijah",
         "lastName": "Ahr",
         "artistName": "Lil Peep",
-        "birthday": {
-            "year": 1996,
-            "month": 11,
-            "day": 1         
-        }
+        "birthday": "1996-11-01"
     }
 ]
+

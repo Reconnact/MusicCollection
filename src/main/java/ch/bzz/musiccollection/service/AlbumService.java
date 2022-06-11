@@ -78,7 +78,6 @@ public class AlbumService {
             @Valid @BeanParam Album album,
             @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("artistUUID") String artistUUID,
-            @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("releaseDate") String releaseDate,
             @FormParam("songUUIDList") List<String> songUUIDList
     ){
@@ -104,6 +103,7 @@ public class AlbumService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateAlbum(
             @Valid @BeanParam Album album,
+            @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("artistUUID") String artistUUID,
             @FormParam("releaseDate") String releaseDate,
             @FormParam("songUUIDList") List<String> songUUIDList

@@ -6,6 +6,3422 @@
 	},
 	"item": [
 		{
+			"name": "correct values",
+			"item": [
+				{
+					"name": "1.1 show songlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"validate response\", function() {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(pm.response.text()).to.include(\"title\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 show albumlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"validate response\", function() {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(pm.response.text()).to.include(\"title\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 show artistlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"validate response\", function() {",
+									"    pm.response.to.be.json;",
+									"    pm.expect(pm.response.text()).to.include(\"artistName\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 read song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"validate response\", function() {",
+									"    pm.response.to.be.json;",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.title).to.eql(\"NGx3\")",
+									"    pm.expect(responseJson.length).to.eql(\"04:04\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 read album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"validate response\", function() {",
+									"    pm.response.to.be.json;",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.title).to.eql(\"Brot & Spiele\")",
+									"    pm.expect(responseJson.releaseDate).to.eql(\"2020-03-13\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 read artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"validate response\", function() {",
+									"    pm.response.to.be.json;",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson.firstName).to.eql(\"Gustav Elijah\")",
+									"    pm.expect(responseJson.artistName).to.eql(\"Lil Peep\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 create new song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Titel",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "05:30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 create new album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Titel",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2000-01-01",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 create new artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Hermann",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Witte",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Hermi",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.1 update song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "length",
+									"value": "02:10",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "ghost boy",
+									"type": "text"
+								},
+								{
+									"key": "songUUID",
+									"value": "8bd155f7-92df-49dc-8127-efb0ab04b0b5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.2 update album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020-03-03",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.3 update artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.1 delete song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.2 delete album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.3 delete artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "unknown values",
+			"item": [
+				{
+					"name": "1.1 read unknown song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d27"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 read unknown album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=80c11f8f-f32c-428a-9ea6-e88260664267",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "80c11f8f-f32c-428a-9ea6-e88260664267"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 read unknown artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 update unknown song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "length",
+									"value": "02:10",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "ghost boy",
+									"type": "text"
+								},
+								{
+									"key": "songUUID",
+									"value": "8bd155f7-92df-49dc-8127-efb0ab04b0b4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 update unknown album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb17",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020-03-03",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 update unknwon artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156035",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 delete unknown song",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d27"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 delete unknown album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 delete unknown artist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(410);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=decd83de-b21f-4ad0-82ea-293118156037",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "decd83de-b21f-4ad0-82ea-293118156037"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wrong values",
+			"item": [
+				{
+					"name": "0.1 read song wrong uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=wrongUUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "wrongUUID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2 read album wrong uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=wrongUUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "wrongUUID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.3 read artist wrong uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=wrongUUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "wrongUUID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1 create new song title too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "59:59",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 create new song title too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "This songtitle is very long and shouldnt be that long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "59:59",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 create new song formally wrong length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "7 Minuten 30 Sekunden",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 create new song too long length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "60:60",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 create new album title too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2000-01-01",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 create new album title too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "This albumtitle is very long and shouldnt be that long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2000-01-01",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 create new album artistUUID wrong",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "I am a wrong UUID",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2000-01-01",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.4 create new album releaseDate formally wrong",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2000 year 5 Month 23 day",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.1 create new artist firstName too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "_",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Witte",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Hermi",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.2 create new artist firstName too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "This name is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Witte",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Hermi",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.3 create new artist lastName too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Hermann",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "_",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Hermi",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.4 create new artist lastName too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Hermann",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "This last name is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Hermi",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.5 create new artist artistName too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Hermann",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Witte",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.6 create new artist artistName too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Hermann",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Witte",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "This artist name is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005-08-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.7 create new artist birthday formally wrong",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Hermann",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Witte",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Hermi",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2005 year 08 month 05 day",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.1 update song title too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "songUUID",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "59:59",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.2 update song title too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "This title is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "songUUID",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "59:59",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.3 update song formally wrong length",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "songUUID",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "1 Stunde 40 Minuten",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.4 update song formally wrong songUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "songUUID",
+									"value": "wrong uuid",
+									"type": "text"
+								},
+								{
+									"key": "length",
+									"value": "59:59",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.1 update album formally wrong albumUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "wrong uuid",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020-03-03",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.2 update album title too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020-03-03",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.3 update album title too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "This title is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020-03-03",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.4 update album releaseDate formally wrong",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "e8637518-922f-4c97-bc4b-5c362ea95a67",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020 year 03 month 03 day",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.5 update album formally wrong artistUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "albumUUID",
+									"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Title",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2020-03-03",
+									"type": "text"
+								},
+								{
+									"key": "artistUUID",
+									"value": "wrong uuid",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								},
+								{
+									"key": "songUUIDList",
+									"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.1 update artist formally wrong artistUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "wrong uuid",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.2 update artist fistName too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "_",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.3 update artist fistName too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "This name is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.4 update artist lastName too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "_",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.5 update artist lastName too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "This last name is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.6 update artist artistName too short",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.6 update artist artistName too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "decd83de-b21f-4ad0-82ea-293118156036",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "This artist name is very long so the httpStatus is going to be 400",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022-05-05",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.7 update artist birthday formally wrong",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(500);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "artistUUID",
+									"value": "9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "artistName",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2022 year 05 month 05 day",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8.1 delete song wrong uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=wrongUUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"song",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "wrongUUID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8.2 delete album wrong uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=wrongUUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"album",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "wrongUUID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8.3 delete artist wrong uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function() {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=wrongUUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"MusicCollection-1.0",
+								"resource",
+								"artist",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "wrongUUID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "0.1 TestService",
 			"request": {
 				"method": "GET",
@@ -28,30 +3444,12 @@
 			"response": []
 		},
 		{
-			"name": "1.1 Songlist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"validate response\", function() {",
-							"    pm.response.to.be.json;",
-							"    pm.expect(pm.response.text()).to.include(\"title\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "0.2 restore files",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/list",
+					"raw": "http://localhost:8080/MusicCollection-1.0/resource/test/restore",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -60,355 +3458,8 @@
 					"path": [
 						"MusicCollection-1.0",
 						"resource",
-						"song",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.2 read song",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"validate response\", function() {",
-							"    pm.response.to.be.json;",
-							"    const responseJson = pm.response.json();",
-							"    pm.expect(responseJson.title).to.eql(\"NGx3\")",
-							"    pm.expect(responseJson.length).to.eql(\"04:04\")",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d28",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"song",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "e522fa82-fed7-422e-8d0c-d76dc46b6d28"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.3 read unknown song",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(404);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"song",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de-b21f-4ad0-82ea-293118156036"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.1 Albumlist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"validate response\", function() {",
-							"    pm.response.to.be.json;",
-							"    pm.expect(pm.response.text()).to.include(\"title\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"album",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.2 read album",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"validate response\", function() {",
-							"    pm.response.to.be.json;",
-							"    const responseJson = pm.response.json();",
-							"    pm.expect(responseJson.title).to.eql(\"Brot & Spiele\")",
-							"    pm.expect(responseJson.releaseDate).to.eql(\"2020-03-13\")",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"album",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "a8de6e04-b6e4-4009-851f-55ba0405bb18"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.3 read unknown album",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(404);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"album",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de-b21f-4ad0-82ea-293118156036"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.1 Artistlist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"validate response\", function() {",
-							"    pm.response.to.be.json;",
-							"    pm.expect(pm.response.text()).to.include(\"artistName\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"artist",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.2 read artist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"validate response\", function() {",
-							"    pm.response.to.be.json;",
-							"    const responseJson = pm.response.json();",
-							"    pm.expect(responseJson.firstName).to.eql(\"David\")",
-							"    pm.expect(responseJson.artistName).to.eql(\"Haze\")",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"artist",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de-b21f-4ad0-82ea-293118156036"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.3 read unknown artist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function() {",
-							"    pm.response.to.have.status(404);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"MusicCollection-1.0",
-						"resource",
-						"song",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "decd83de-b21f-4ad0-82ea-293118156036"
-						}
+						"test",
+						"restore"
 					]
 				}
 			},

@@ -22,14 +22,17 @@ public class Artist {
 
     @FormParam("firstName")
     @NotEmpty
+    @Size(min=2, max=40)
     private String firstName;
 
     @FormParam("lastName")
     @NotEmpty
+    @Size(min=2, max=40)
     private String lastName;
 
     @FormParam("artistName")
     @NotEmpty
+    @Size(min=1, max=40)
     private String artistName;
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
