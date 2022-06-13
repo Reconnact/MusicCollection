@@ -86,10 +86,18 @@ public class Album {
         this.releaseDate = releaseDate;
     }
 
+    /**
+     * sets the releasedate with a String
+     * @param releaseDate
+     */
     public void setReleaseDateWithString(String releaseDate) {
         this.releaseDate = LocalDate.parse(releaseDate);
     }
 
+    /**
+     * sets the songList with a ArrayList with UUIDs
+     * @param songUUIDList
+     */
     public void setSongUUIDList(ArrayList<String> songUUIDList){
         ListIterator<String> iterator = songUUIDList.listIterator();
         while (iterator.hasNext()){
@@ -98,6 +106,10 @@ public class Album {
         }
     }
 
+    /**
+     * gets songUUIDList (ArrayList of the songUUIDs)
+     * @return
+     */
     public ArrayList<String> getSongUUIDList(){
         ArrayList<String> songUUIDList = new ArrayList<>();
         ListIterator<Song> iterator = songList.listIterator();
@@ -108,6 +120,10 @@ public class Album {
         return songUUIDList;
     }
 
+    /**
+     * sets songUUIList (ArrayList) with a List
+     * @param songUUIDList
+     */
     public void setSongUUIDListWithList(List<String> songUUIDList){
         ArrayList<String> arrayList = new ArrayList<>();
         ListIterator<String> iterator = songUUIDList.listIterator();
