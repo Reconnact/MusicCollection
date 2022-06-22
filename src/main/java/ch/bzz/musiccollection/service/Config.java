@@ -32,6 +32,7 @@ public class Config extends Application {
         providers.add(AlbumService.class);
         providers.add(ArtistService.class);
         providers.add(TestService.class);
+        providers.add(UserService.class);
         return providers;
     }
 
