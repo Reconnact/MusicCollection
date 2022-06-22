@@ -3,16 +3,12 @@ package ch.bzz.musiccollection.service;
 import ch.bzz.musiccollection.data.DataHandler;
 import ch.bzz.musiccollection.model.Album;
 
-import ch.bzz.musiccollection.model.Song;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 

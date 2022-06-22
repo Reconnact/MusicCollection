@@ -10,7 +10,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
 
 /**
  * A artist who has zero to multiple albums
