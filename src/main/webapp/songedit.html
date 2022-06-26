@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="project" content="Musiccollection"/>
+    <meta name="description" content="song form edit"/>
+    <title>Song bearbeiten</title>
+    <script src="./js/util.js"></script>
+    <script src="./js/songedit.js"></script>
+</head>
+<body>
+<nav id="nav">
+    <span><a href="./musicCollection.html">Songs</a></span>
+    <span><a href="./albumlist.html">Alben</a></span>
+    <span><a href="./artistlist.html">Musiker</a></span>
+    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Song bearbeiten</h3>
+<form id="songeditForm" name="songedit">
+    <table>
+        <tr>
+            <td><label for="title">Songtitel</label></td>
+            <td>
+                <input id="title" name="title" type="text" size="40" minlength="1" maxlength="40" required/>
+                <input id="songUUID" name="songUUID" type="hidden"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="length">Length</label></td>
+            <td>
+                <input id="length" name="length" type="text" pattern="[0-5][0-9]:[0-5][0-9]" required></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="save" type="submit">Speichern</button>
+            </td>
+            <td>
+                <button id="reset" type="reset">Zurücksetzen</button>
+            </td>
+            <td>
+                <button id="cancel" type="button">Abbruch</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

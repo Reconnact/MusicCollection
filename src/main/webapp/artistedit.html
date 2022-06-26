@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="project" content="Musiccollection"/>
+    <meta name="description" content="artist form edit"/>
+    <title>Musiker bearbeiten</title>
+    <script src="./js/util.js"></script>
+    <script src="./js/artistedit.js"></script>
+</head>
+<body>
+<nav id="nav">
+    <span><a href="./musicCollection.html">Songs</a></span>
+    <span><a href="./albumlist.html">Alben</a></span>
+    <span><a href="./artistlist.html">Musiker</a></span>
+    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Musiker bearbeiten</h3>
+<form id="artisteditFomr" name="artistedit">
+    <table>
+        <tr>
+            <td><label for="firstName">Vorname</label></td>
+            <td>
+                <input id="firstName" name="firstName" type="text" size="40" minlength="2" maxlength="40" required/>
+                <input id="artistUUID" name="artistUUID" type="hidden"/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="lastName">Nachname</label></td>
+            <td>
+                <input id="lastName" name="lastName" type="text" size="40" minlength="2" maxlength="40" required></td>
+        </tr>
+        <tr>
+            <td><label for="artistName">Musikername</label></td>
+            <td>
+                <input id="artistName" name="artistName" type="text" size="40" minlength="2" maxlength="40" required></td>
+        </tr>
+        <tr>
+            <td><label for="birthday">Geburtstag</label></td>
+            <td>
+                <input id="birthday" name="birthday" pattern="\d{4}-\d{2}-\d{2}" required/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="save" type="submit">Speichern</button>
+            </td>
+            <td>
+                <button id="reset" type="reset">Zurücksetzen</button>
+            </td>
+            <td>
+                <button id="cancel" type="button">Abbruch</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

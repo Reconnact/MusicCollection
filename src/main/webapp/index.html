@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>MusicCollection</title>
+    <meta name="author" content="Hermann Witte"/>
+    <meta name="project" content="MusicCollection"/>
+    <meta name="description" content="MusicCollection"/>
+    <title>Anmeldung</title>
+    <script src="./js/util.js"></script>
+    <script src="./js/login.js"></script>
 </head>
 <body>
-
+<nav id="nav">
+    <span><a href="./musicCollection.html">Songs</a></span>
+    <span><a href="./albumlist.html">Alben</a></span>
+    <span><a href="./artistlist.html">Musiker</a></span>
+    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
+    <span id="message" style="color: red;"></span>
+</nav>
+<h3>Anmeldung</h3>
+<form id="loginForm">
+    <table>
+        <tr>
+            <td><label for="username">Benutzername</label></td>
+            <td><input id="username" name="username" type="text"/>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td><input id="password" name="password" type="password"/>
+        </tr>
+        <tr>
+            <td>
+                <button id="login" type="submit">Anmelden</button>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
