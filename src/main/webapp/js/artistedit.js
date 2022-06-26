@@ -1,22 +1,22 @@
 /**
  * view-controller for artistedit.html
- * @author Marcel Suter
+ * @author Hermann Witte
  */
 document.addEventListener("DOMContentLoaded", () => {
     readArtist();
 
-    document.getElementById("artisteditFomr").addEventListener("submit", saveArtist);
+    document.getElementById("artisteditForm").addEventListener("submit", saveArtist);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
 });
 
 /**
  * saves the data of an artist
- */
+ */ewrwwww
 function saveArtist(event) {
     event.preventDefault();
     showMessage("", "info");
 
-    const artistForm = document.getElementById("artisteditFomr");
+    const artistForm = document.getElementById("artisteditForm");
     const formData = new FormData(artistForm);
     const data = new URLSearchParams(formData);
 

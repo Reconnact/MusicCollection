@@ -1,6 +1,6 @@
 /**
  * view-controller for album.html
- * @author Marcel Suter
+ * @author Hermann Witte
  */
 document.addEventListener("DOMContentLoaded", () => {
     readSongs();
@@ -21,7 +21,7 @@ function saveAlbum(event) {
     const albumForm = document.getElementById("albumeditForm");
     const formData = new FormData(albumForm);
     const data = new URLSearchParams(formData);
-
+    console.log(albumForm);
     let method;
     let url = "./resource/album/";
     const albumUUID = getQueryParam("uuid");
@@ -92,7 +92,7 @@ function showAlbum(data) {
 
     selectedSongs(data.songList)
     const locked =  !(userRole === "user" || userRole === "admin");
-    lockForm("songeditForm", locked);
+    lockForm("albumeditForm", locked);
 }
 
 

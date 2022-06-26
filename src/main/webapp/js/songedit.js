@@ -1,6 +1,6 @@
 /**
  * view-controller for songedit.html
- * @author Marcel Suter
+ * @author Hermann Witte
  */
 document.addEventListener("DOMContentLoaded", () => {
     readSong();

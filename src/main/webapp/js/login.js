@@ -1,5 +1,6 @@
 /**
  * view-controller for login-form
+ * @author Hermann Witte
  */
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("loginForm").addEventListener("submit", loginUser);
