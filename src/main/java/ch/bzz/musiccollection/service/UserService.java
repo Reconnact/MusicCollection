@@ -23,7 +23,7 @@ public class UserService {
     {
         int httpStatus;
         User user = UserData.findUser(username, password);
-        if (user == null || user.getRole() == null || user.getRole().equals("guest")) {
+        if (user == null || user.getRole() == null) {
             httpStatus = 404;
         } else {
             httpStatus = 200;

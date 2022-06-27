@@ -1,18 +1,18 @@
 {
-	"id": "7a1af55a-3a9d-4bfa-adae-506c0222e6ee",
+	"id": "b70899b3-b677-470d-9ae1-3654665796b3",
 	"name": "MusicCollection",
-	"timestamp": "2022-06-11T09:39:13.238Z",
+	"timestamp": "2022-06-27T17:00:18.750Z",
 	"collection_id": "051967de-cb46-4a7a-8793-128b1ff43cd6",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 68,
+	"totalPass": 69,
 	"totalFail": 0,
 	"results": [
 		{
 			"id": "7d9a9adc-b91e-4a8a-9a92-44dd70fc130c",
 			"name": "1.1 show songlist",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/list",
-			"time": 11,
+			"time": 24,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -32,7 +32,7 @@
 				}
 			},
 			"times": [
-				11
+				24
 			],
 			"allTests": [
 				{
@@ -45,7 +45,7 @@
 			"id": "e66507d6-e392-406f-91e5-bf640e26e49d",
 			"name": "1.2 show albumlist",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/list",
-			"time": 33,
+			"time": 55,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -65,7 +65,7 @@
 				}
 			},
 			"times": [
-				33
+				55
 			],
 			"allTests": [
 				{
@@ -78,7 +78,7 @@
 			"id": "4758998c-0431-41ae-9ca7-0434d1d68546",
 			"name": "1.3 show artistlist",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/list",
-			"time": 4,
+			"time": 19,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -98,7 +98,7 @@
 				}
 			},
 			"times": [
-				4
+				19
 			],
 			"allTests": [
 				{
@@ -111,39 +111,6 @@
 			"id": "fe740810-5049-4636-bf29-212da1a40297",
 			"name": "2.1 read song",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d28",
-			"time": 9,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"validate response": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"validate response": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				9
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"validate response": true
-				}
-			]
-		},
-		{
-			"id": "ecab919c-17d7-4e8a-ba57-0e0b44958883",
-			"name": "2.2 read album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
 			"time": 6,
 			"responseCode": {
 				"code": 200,
@@ -174,10 +141,10 @@
 			]
 		},
 		{
-			"id": "3ccd396f-8676-4b19-943a-597108923c72",
-			"name": "2.3 read artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
-			"time": 12,
+			"id": "ecab919c-17d7-4e8a-ba57-0e0b44958883",
+			"name": "2.2 read album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
+			"time": 8,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -197,7 +164,40 @@
 				}
 			},
 			"times": [
-				12
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"validate response": true
+				}
+			]
+		},
+		{
+			"id": "3ccd396f-8676-4b19-943a-597108923c72",
+			"name": "2.3 read artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/read?uuid=9ff220ef-9a39-4d9d-87a9-619fc6c275e7",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"validate response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"validate response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
 			],
 			"allTests": [
 				{
@@ -210,7 +210,7 @@
 			"id": "5a02c36b-46f7-4ff3-b43c-2c75922d4b00",
 			"name": "3.1 create new song",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
-			"time": 35,
+			"time": 57,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -225,7 +225,7 @@
 				}
 			},
 			"times": [
-				35
+				57
 			],
 			"allTests": [
 				{
@@ -237,7 +237,7 @@
 			"id": "78c30532-66ec-42ba-960c-152e079e0d0f",
 			"name": "3.2 create new album",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
-			"time": 34,
+			"time": 31,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -252,7 +252,7 @@
 				}
 			},
 			"times": [
-				34
+				31
 			],
 			"allTests": [
 				{
@@ -264,6 +264,87 @@
 			"id": "a485553b-2c7f-4316-b4d6-a8af013a5311",
 			"name": "3.3 create new artist",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "5ac36138-032c-4d78-9861-d645171562df",
+			"name": "4.1 update song",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "c633d07c-84b4-4996-9321-f3478849d849",
+			"name": "4.2 update album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1fc9ee7c-adfe-4e95-a7eb-635f1aec4839",
+			"name": "4.3 update artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
 			"time": 9,
 			"responseCode": {
 				"code": 200,
@@ -288,283 +369,13 @@
 			]
 		},
 		{
-			"id": "5ac36138-032c-4d78-9861-d645171562df",
-			"name": "4.1 update song",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
-			"time": 21,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				21
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "c633d07c-84b4-4996-9321-f3478849d849",
-			"name": "4.2 update album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
-			"time": 24,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				24
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1fc9ee7c-adfe-4e95-a7eb-635f1aec4839",
-			"name": "4.3 update artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 20,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				20
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
 			"id": "6468f1ef-04be-41af-872d-9de2050f7c13",
 			"name": "5.1 delete song",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d28",
-			"time": 14,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				14
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1f74f213-a0e0-426e-a165-08348370b832",
-			"name": "5.2 delete album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
-			"time": 8,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				8
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1e9d7007-b753-43ab-8b7a-11f6bdd41d70",
-			"name": "5.3 delete artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-			"time": 22,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				22
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "ca1cc4da-cc2f-42d6-9809-b2507e938608",
-			"name": "1.1 read unknown song",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d27",
-			"time": 4,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "526d1135-9451-40fa-bb38-837f9c5e6582",
-			"name": "1.2 read unknown album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=80c11f8f-f32c-428a-9ea6-e88260664267",
-			"time": 5,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "41d992a8-73aa-4230-8d45-8db3e882efac",
-			"name": "1.3 read unknown artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
-			"time": 4,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "e115de82-1263-44f6-9811-ca8bf2b56a7e",
-			"name": "2.1 update unknown song",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
-			"time": 4,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "2cda916d-8379-4f68-9b08-871524dcf741",
-			"name": "2.2 update unknown album",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
 			"time": 7,
 			"responseCode": {
-				"code": 410,
-				"name": "Gone"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
 				"Status test": true
@@ -585,9 +396,171 @@
 			]
 		},
 		{
-			"id": "ea226ddc-d777-40ee-91b0-01ec9eb91e00",
-			"name": "2.3 update unknwon artist",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"id": "1f74f213-a0e0-426e-a165-08348370b832",
+			"name": "5.2 delete album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=a8de6e04-b6e4-4009-851f-55ba0405bb18",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1e9d7007-b753-43ab-8b7a-11f6bdd41d70",
+			"name": "5.3 delete artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "ca1cc4da-cc2f-42d6-9809-b2507e938608",
+			"name": "1.1 read unknown song",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d27",
+			"time": 9,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "526d1135-9451-40fa-bb38-837f9c5e6582",
+			"name": "1.2 read unknown album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=80c11f8f-f32c-428a-9ea6-e88260664267",
+			"time": 20,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "41d992a8-73aa-4230-8d45-8db3e882efac",
+			"name": "1.3 read unknown artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=decd83de-b21f-4ad0-82ea-293118156036",
+			"time": 17,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e115de82-1263-44f6-9811-ca8bf2b56a7e",
+			"name": "2.1 update unknown song",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+			"time": 13,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "2cda916d-8379-4f68-9b08-871524dcf741",
+			"name": "2.2 update unknown album",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
 			"time": 6,
 			"responseCode": {
 				"code": 410,
@@ -612,10 +585,10 @@
 			]
 		},
 		{
-			"id": "e46865c8-6bbb-473d-8915-5b3e75ef2381",
-			"name": "3.1 delete unknown song",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d27",
-			"time": 3,
+			"id": "ea226ddc-d777-40ee-91b0-01ec9eb91e00",
+			"name": "2.3 update unknwon artist",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 4,
 			"responseCode": {
 				"code": 410,
 				"name": "Gone"
@@ -630,7 +603,34 @@
 				}
 			},
 			"times": [
-				3
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e46865c8-6bbb-473d-8915-5b3e75ef2381",
+			"name": "3.1 delete unknown song",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=e522fa82-fed7-422e-8d0c-d76dc46b6d27",
+			"time": 12,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
 			],
 			"allTests": [
 				{
@@ -669,7 +669,7 @@
 			"id": "dde95b44-1584-4004-ba48-291e6891237a",
 			"name": "3.3 delete unknown artist",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=decd83de-b21f-4ad0-82ea-293118156037",
-			"time": 6,
+			"time": 24,
 			"responseCode": {
 				"code": 410,
 				"name": "Gone"
@@ -684,7 +684,7 @@
 				}
 			},
 			"times": [
-				6
+				24
 			],
 			"allTests": [
 				{
@@ -696,7 +696,7 @@
 			"id": "86009c81-5473-4099-a9aa-0840a44b554a",
 			"name": "0.1 read song wrong uuid",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=wrongUUID",
-			"time": 10,
+			"time": 76,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -711,7 +711,7 @@
 				}
 			},
 			"times": [
-				10
+				76
 			],
 			"allTests": [
 				{
@@ -723,681 +723,6 @@
 			"id": "5bf706b6-ec02-416d-8b4d-ded024ac6b1d",
 			"name": "0.2 read album wrong uuid",
 			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/read?uuid=wrongUUID",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1ef5f27a-ae75-44eb-afbd-b0d2626df508",
-			"name": "0.3 read artist wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=wrongUUID",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "d86a3131-e67a-4d55-8228-e8cd99f4df5e",
-			"name": "1.1 create new song title too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
-			"time": 29,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				29
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "22b42e2d-b492-4649-8b2f-cbad0a871f13",
-			"name": "1.2 create new song title too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
-			"time": 8,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				8
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "bbf7cd62-3c44-4829-b278-a7fe32f682a5",
-			"name": "2.2 create new song formally wrong length",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
-			"time": 11,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				11
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "35d890f5-ff88-42df-9ae3-57fb8db81080",
-			"name": "2.2 create new song too long length",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "a15122dc-b535-4448-9bb4-2ad90cb7449c",
-			"name": "3.1 create new album title too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
-			"time": 13,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				13
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "8fdbc29c-ceae-4f45-a708-d97b94532f31",
-			"name": "3.2 create new album title too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
-			"time": 17,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				17
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "baead4f4-9fee-46fd-9f03-0a80682a4cf0",
-			"name": "3.3 create new album artistUUID wrong",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
-			"time": 14,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				14
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "3c6394b8-0372-4d2b-b382-5c8178018187",
-			"name": "3.4 create new album releaseDate formally wrong",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
-			"time": 30,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				30
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "7bb11b15-69ed-49a6-8d75-3dd8fad84904",
-			"name": "4.1 create new artist firstName too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "6e9cf5df-777d-441a-b769-4b397d54298c",
-			"name": "4.2 create new artist firstName too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 12,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "36cbcc64-0de5-4b32-9f5a-81772c0ca4fc",
-			"name": "4.3 create new artist lastName too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 11,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				11
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "6843dbcc-f359-42fc-93c4-505943439eca",
-			"name": "4.4 create new artist lastName too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "fc0643a8-1244-4618-8e75-6ce679962968",
-			"name": "4.5 create new artist artistName too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 23,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				23
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "18bf19ff-957b-4de0-bf77-1476468c845e",
-			"name": "4.6 create new artist artistName too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "144333fb-4fd8-4f3d-b518-4a5e5293859b",
-			"name": "4.7 create new artist birthday formally wrong",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
-			"time": 13,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				13
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1d61682c-ae0a-4a27-99bb-d7438b44f87e",
-			"name": "5.1 update song title too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
-			"time": 43,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				43
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1e30e665-e588-437a-a66c-b951325f5d4c",
-			"name": "5.2 update song title too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
-			"time": 10,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "e417d3dd-9326-45a7-a376-8c97cca107ef",
-			"name": "5.3 update song formally wrong length",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
-			"time": 15,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				15
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "1915a510-2294-44f1-b708-9c062f36a37f",
-			"name": "5.4 update song formally wrong songUUID",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
-			"time": 17,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				17
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "badcbe82-37d3-43e3-9028-9d18f70a0c3e",
-			"name": "6.1 update album formally wrong albumUUID",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "d948d868-a218-4422-b2f7-7de5028d8209",
-			"name": "6.2 update album title too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
-			"time": 31,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				31
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "5a465717-4e37-49f5-8d28-594b7959076f",
-			"name": "6.3 update album title too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
-			"time": 19,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "f0175b3c-2f1e-4ba0-b701-e92d2c86f6ab",
-			"name": "6.4 update album releaseDate formally wrong",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
-			"time": 121,
-			"responseCode": {
-				"code": 500,
-				"name": "Internal Server Error"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				121
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "e11e78aa-6618-45af-8a1b-98877ac77960",
-			"name": "6.5 update album formally wrong artistUUID",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
 			"time": 27,
 			"responseCode": {
 				"code": 400,
@@ -1422,63 +747,9 @@
 			]
 		},
 		{
-			"id": "dc35f9d2-4862-4683-ab80-c1eae1e5ad41",
-			"name": "7.1 update artist formally wrong artistUUID",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 25,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				25
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "a5b1faf4-d198-4c92-9029-e5e7ffc713b8",
-			"name": "7.2 update artist fistName too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 24,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				24
-			],
-			"allTests": [
-				{
-					"Status test": true
-				}
-			]
-		},
-		{
-			"id": "8044e91e-b0ce-403e-8855-1489aab590da",
-			"name": "7.3 update artist fistName too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"id": "1ef5f27a-ae75-44eb-afbd-b0d2626df508",
+			"name": "0.3 read artist wrong uuid",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/read?uuid=wrongUUID",
 			"time": 15,
 			"responseCode": {
 				"code": 400,
@@ -1503,10 +774,10 @@
 			]
 		},
 		{
-			"id": "147d1069-f35b-450a-a58f-a4ef39a40a56",
-			"name": "7.4 update artist lastName too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 6,
+			"id": "d86a3131-e67a-4d55-8228-e8cd99f4df5e",
+			"name": "1.1 create new song title too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+			"time": 16,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1521,7 +792,7 @@
 				}
 			},
 			"times": [
-				6
+				16
 			],
 			"allTests": [
 				{
@@ -1530,10 +801,10 @@
 			]
 		},
 		{
-			"id": "3693d93f-cc99-4f49-aca1-751e10f64661",
-			"name": "7.5 update artist lastName too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 11,
+			"id": "22b42e2d-b492-4649-8b2f-cbad0a871f13",
+			"name": "1.2 create new song title too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+			"time": 15,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1548,7 +819,7 @@
 				}
 			},
 			"times": [
-				11
+				15
 			],
 			"allTests": [
 				{
@@ -1557,10 +828,10 @@
 			]
 		},
 		{
-			"id": "a8d90233-094a-4781-8e78-b5a84ea87668",
-			"name": "7.6 update artist artistName too short",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 6,
+			"id": "bbf7cd62-3c44-4829-b278-a7fe32f682a5",
+			"name": "2.2 create new song formally wrong length",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+			"time": 14,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1575,7 +846,7 @@
 				}
 			},
 			"times": [
-				6
+				14
 			],
 			"allTests": [
 				{
@@ -1584,10 +855,10 @@
 			]
 		},
 		{
-			"id": "f4e844b8-2539-4cf9-86cf-cd9a3aba6a5c",
-			"name": "7.6 update artist artistName too long",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 11,
+			"id": "35d890f5-ff88-42df-9ae3-57fb8db81080",
+			"name": "2.2 create new song too long length",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/create",
+			"time": 12,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1602,7 +873,7 @@
 				}
 			},
 			"times": [
-				11
+				12
 			],
 			"allTests": [
 				{
@@ -1611,10 +882,91 @@
 			]
 		},
 		{
-			"id": "e9d19a1e-a0b3-4a1a-a862-c16e0bdcf754",
-			"name": "7.7 update artist birthday formally wrong",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
-			"time": 6,
+			"id": "a15122dc-b535-4448-9bb4-2ad90cb7449c",
+			"name": "3.1 create new album title too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "8fdbc29c-ceae-4f45-a708-d97b94532f31",
+			"name": "3.2 create new album title too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "baead4f4-9fee-46fd-9f03-0a80682a4cf0",
+			"name": "3.3 create new album artistUUID wrong",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+			"time": 50,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				50
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "3c6394b8-0372-4d2b-b382-5c8178018187",
+			"name": "3.4 create new album releaseDate formally wrong",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/create",
+			"time": 18,
 			"responseCode": {
 				"code": 500,
 				"name": "Internal Server Error"
@@ -1629,7 +981,7 @@
 				}
 			},
 			"times": [
-				6
+				18
 			],
 			"allTests": [
 				{
@@ -1638,10 +990,10 @@
 			]
 		},
 		{
-			"id": "68d799c9-e65b-4cfc-adee-30d90a83daa1",
-			"name": "8.1 delete song wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=wrongUUID",
-			"time": 15,
+			"id": "7bb11b15-69ed-49a6-8d75-3dd8fad84904",
+			"name": "4.1 create new artist firstName too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 26,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1656,7 +1008,7 @@
 				}
 			},
 			"times": [
-				15
+				26
 			],
 			"allTests": [
 				{
@@ -1665,9 +1017,9 @@
 			]
 		},
 		{
-			"id": "51c5e1da-be83-4c67-a990-3e5c71d0fb36",
-			"name": "8.2 delete album wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=wrongUUID",
+			"id": "6e9cf5df-777d-441a-b769-4b397d54298c",
+			"name": "4.2 create new artist firstName too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
 			"time": 10,
 			"responseCode": {
 				"code": 400,
@@ -1692,10 +1044,10 @@
 			]
 		},
 		{
-			"id": "908c6c62-6a4e-4502-ac0f-39b7cbfdee7c",
-			"name": "8.3 delete artist wrong uuid",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=wrongUUID",
-			"time": 19,
+			"id": "36cbcc64-0de5-4b32-9f5a-81772c0ca4fc",
+			"name": "4.3 create new artist lastName too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 14,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
@@ -1710,7 +1062,7 @@
 				}
 			},
 			"times": [
-				19
+				14
 			],
 			"allTests": [
 				{
@@ -1719,10 +1071,685 @@
 			]
 		},
 		{
-			"id": "0b7df784-9923-4960-9392-b634276b47a1",
-			"name": "0.1 TestService",
-			"url": "http://localhost:8080/MusicCollection-1.0/resource/test/test",
-			"time": 12,
+			"id": "6843dbcc-f359-42fc-93c4-505943439eca",
+			"name": "4.4 create new artist lastName too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 32,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "fc0643a8-1244-4618-8e75-6ce679962968",
+			"name": "4.5 create new artist artistName too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 18,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "18bf19ff-957b-4de0-bf77-1476468c845e",
+			"name": "4.6 create new artist artistName too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "144333fb-4fd8-4f3d-b518-4a5e5293859b",
+			"name": "4.7 create new artist birthday formally wrong",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/create",
+			"time": 52,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				52
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1d61682c-ae0a-4a27-99bb-d7438b44f87e",
+			"name": "5.1 update song title too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+			"time": 23,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1e30e665-e588-437a-a66c-b951325f5d4c",
+			"name": "5.2 update song title too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e417d3dd-9326-45a7-a376-8c97cca107ef",
+			"name": "5.3 update song formally wrong length",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+			"time": 34,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1915a510-2294-44f1-b708-9c062f36a37f",
+			"name": "5.4 update song formally wrong songUUID",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/update",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "badcbe82-37d3-43e3-9028-9d18f70a0c3e",
+			"name": "6.1 update album formally wrong albumUUID",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "d948d868-a218-4422-b2f7-7de5028d8209",
+			"name": "6.2 update album title too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "5a465717-4e37-49f5-8d28-594b7959076f",
+			"name": "6.3 update album title too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "f0175b3c-2f1e-4ba0-b701-e92d2c86f6ab",
+			"name": "6.4 update album releaseDate formally wrong",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+			"time": 13,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e11e78aa-6618-45af-8a1b-98877ac77960",
+			"name": "6.5 update album formally wrong artistUUID",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/update",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "dc35f9d2-4862-4683-ab80-c1eae1e5ad41",
+			"name": "7.1 update artist formally wrong artistUUID",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 26,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				26
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "a5b1faf4-d198-4c92-9029-e5e7ffc713b8",
+			"name": "7.2 update artist fistName too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 22,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "8044e91e-b0ce-403e-8855-1489aab590da",
+			"name": "7.3 update artist fistName too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "147d1069-f35b-450a-a58f-a4ef39a40a56",
+			"name": "7.4 update artist lastName too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 78,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "3693d93f-cc99-4f49-aca1-751e10f64661",
+			"name": "7.5 update artist lastName too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "a8d90233-094a-4781-8e78-b5a84ea87668",
+			"name": "7.6 update artist artistName too short",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "f4e844b8-2539-4cf9-86cf-cd9a3aba6a5c",
+			"name": "7.6 update artist artistName too long",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e9d19a1e-a0b3-4a1a-a862-c16e0bdcf754",
+			"name": "7.7 update artist birthday formally wrong",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/update",
+			"time": 10,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "68d799c9-e65b-4cfc-adee-30d90a83daa1",
+			"name": "8.1 delete song wrong uuid",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/song/delete?uuid=wrongUUID",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "51c5e1da-be83-4c67-a990-3e5c71d0fb36",
+			"name": "8.2 delete album wrong uuid",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/album/delete?uuid=wrongUUID",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "908c6c62-6a4e-4502-ac0f-39b7cbfdee7c",
+			"name": "8.3 delete artist wrong uuid",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/artist/delete?uuid=wrongUUID",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1d58c8b7-2431-4e90-b2b2-c70e511eca78",
+			"name": "Login",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/user/login",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "5a50f43e-7164-4d29-8f4a-7c9a3300a6da",
+			"name": "Logout",
+			"url": "http://localhost:8080/MusicCollection-1.0/resource/user/logoff",
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -1730,7 +1757,7 @@
 			"tests": {},
 			"testPassFailCounts": {},
 			"times": [
-				12
+				7
 			],
 			"allTests": [
 				{}
@@ -1738,7 +1765,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 1008,
+	"totalTime": 1195,
 	"collection": {
 		"requests": [
 			{
@@ -1990,8 +2017,12 @@
 				"method": "DELETE"
 			},
 			{
-				"id": "0b7df784-9923-4960-9392-b634276b47a1",
-				"method": "GET"
+				"id": "1d58c8b7-2431-4e90-b2b2-c70e511eca78",
+				"method": "POST"
+			},
+			{
+				"id": "5a50f43e-7164-4d29-8f4a-7c9a3300a6da",
+				"method": "DELETE"
 			}
 		]
 	}
