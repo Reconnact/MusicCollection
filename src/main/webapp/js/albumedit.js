@@ -17,11 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function saveAlbum(event) {
     event.preventDefault();
     showMessage("", "info");
-
     const albumForm = document.getElementById("albumeditForm");
     const formData = new FormData(albumForm);
     const data = new URLSearchParams(formData);
-    console.log(albumForm);
+    console.log(data);
     let method;
     let url = "./resource/album/";
     const albumUUID = getQueryParam("uuid");

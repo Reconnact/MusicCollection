@@ -54,7 +54,7 @@ public class UserService {
     public Response login()
     {
         NewCookie roleCookie = new NewCookie(
-                "",
+                "userRole",
                 "",
                 "/",
                 "",

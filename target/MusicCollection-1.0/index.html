@@ -14,7 +14,16 @@
     <span><a href="./musicCollection.html">Songs</a></span>
     <span><a href="./albumlist.html">Alben</a></span>
     <span><a href="./artistlist.html">Musiker</a></span>
-    <span id="logOnOff"><a href="./index.html">Abmelden</a></a></span>
+    <span id="logOnOff"><button onclick="logout()">Abmelden</button></span>
+    <script>
+        function logout(){
+            fetch("./resource/user/logoff", {method: "DELETE"}).then(function (response){
+                window.location.href = "./index.html"
+            }).catch(function (){
+                console.log("error")
+            });
+        }
+    </script>
     <span id="message" style="color: red;"></span>
 </nav>
 <h3>Anmeldung</h3>
