@@ -23,6 +23,7 @@ function readArtists() {
                 return response;
             } else {
                 console.log(response);
+                document.getElementById("artistlist").innerHTML = "Sie sind nicht berechtigt, diese Seite zu sehen!";
             }
         })
         .then(response => response.json())
@@ -45,7 +46,7 @@ function showArtistlist(data) {
         let row = tBody.insertRow(-1);
 
         let button = document.createElement("button");
-        if (userRole === "user" || userRole === "admin")
+        if (userRole === "admin")
             button.innerHTML = "&#9998;";
         else
             button.innerHTML = "&#128065;";
@@ -72,7 +73,7 @@ function showArtistlist(data) {
 
     });
 
-    if (userRole === "user" || userRole === "admin") {
+    if (userRole === "admin") {
         document.getElementById("addButton").innerHTML = "<a href='./artistedit.html'>Neuer Musiker</a>";
     }
 }

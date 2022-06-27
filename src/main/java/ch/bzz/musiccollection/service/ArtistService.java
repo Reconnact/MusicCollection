@@ -10,6 +10,7 @@ import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.awt.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,10 +24,16 @@ public class ArtistService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listArtists () {
+    public Response listArtists (
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("guest")){
+            httpStatus = 403;
+        }
         List<Artist> artistsMap = DataHandler.readAllArtists();
         Response response = Response
-                .status(200)
+                .status(httpStatus)
                 .entity(artistsMap)
                 .build();
         return response;
@@ -43,21 +50,23 @@ public class ArtistService {
     public  Response readArtist (
             @NotEmpty
             @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("uuid") String artistUUID
+            @QueryParam("uuid") String artistUUID,
+            @CookieParam("userRole") String userRole
     ){
         Artist artist = null;
-        int httpStatus;
-
-        try {
-            UUID.fromString(artistUUID);
-            artist =  DataHandler.readArtistByUUID(artistUUID);
-            if (artist == null){
-                httpStatus = 404;
-            } else {
-                httpStatus = 200;
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("guest")){
+            httpStatus = 403;
+        } else {
+            try {
+                UUID.fromString(artistUUID);
+                artist = DataHandler.readArtistByUUID(artistUUID);
+                if (artist == null) {
+                    httpStatus = 404;
+                }
+            } catch (IllegalArgumentException argEx) {
+                httpStatus = 400;
             }
-        } catch (IllegalArgumentException argEx){
-            httpStatus = 400;
         }
 
         Response response = Response
@@ -78,13 +87,19 @@ public class ArtistService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertArtist(
             @Valid @BeanParam Artist artist,
-            @FormParam("birthday") String birthday
+            @FormParam("birthday") String birthday,
+            @CookieParam("userRole") String userRole
     ){
-        artist.setArtistUUID(UUID.randomUUID().toString());
-        artist.setBirthdayWithString(birthday);
-        DataHandler.insertArtist(artist);
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("guest") ||userRole.equals("user")){
+            httpStatus = 403;
+        } else {
+            artist.setArtistUUID(UUID.randomUUID().toString());
+            artist.setBirthdayWithString(birthday);
+            DataHandler.insertArtist(artist);
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -101,19 +116,24 @@ public class ArtistService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateArtist(
             @Valid @BeanParam Artist artist,
-            @FormParam("birthday") String birthday
+            @FormParam("birthday") String birthday,
+            @CookieParam("userRole") String userRole
     ){
         int httpStatus = 200;
         Artist oldArtist = DataHandler.readArtistByUUID(artist.getArtistUUID());
-        if (oldArtist != null) {
-            oldArtist.setArtistName(artist.getArtistName());
-            oldArtist.setBirthday(artist.getBirthday());
-            oldArtist.setLastName(artist.getLastName());
-            oldArtist.setFirstName(artist.getFirstName());
-            oldArtist.setBirthdayWithString(birthday);
-            DataHandler.updateArtist();
+        if (userRole == null || userRole.equals("guest") ||userRole.equals("user")){
+            httpStatus = 403;
         } else {
-            httpStatus = 410;
+            if (oldArtist != null) {
+                oldArtist.setArtistName(artist.getArtistName());
+                oldArtist.setBirthday(artist.getBirthday());
+                oldArtist.setLastName(artist.getLastName());
+                oldArtist.setFirstName(artist.getFirstName());
+                oldArtist.setBirthdayWithString(birthday);
+                DataHandler.updateArtist();
+            } else {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)
@@ -132,11 +152,16 @@ public class ArtistService {
     public Response deleteArtist(
             @NotEmpty
             @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("uuid") String artistUUID
-    ){
+            @QueryParam("uuid") String artistUUID,
+            @CookieParam("userRole") String userRole
+            ){
         int httpStatus = 200;
-        if (!DataHandler.deleteArtist(artistUUID)){
-            httpStatus = 410;
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.deleteArtist(artistUUID)) {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)

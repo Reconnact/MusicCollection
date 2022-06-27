@@ -87,7 +87,7 @@ function showSong(data) {
     document.getElementById("title").value = data.title;
     document.getElementById("length").value = data.length;
 
-    const locked =  !(userRole === "user" || userRole === "admin");
+    const locked =  !(userRole === "admin");
     lockForm("songeditForm", locked);
 }
 

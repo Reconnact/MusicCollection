@@ -3,6 +3,7 @@ package ch.bzz.musiccollection.service;
 import ch.bzz.musiccollection.data.DataHandler;
 import ch.bzz.musiccollection.model.Album;
 
+import ch.bzz.musiccollection.model.Song;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
@@ -25,10 +26,16 @@ public class AlbumService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listAlbums () {
+    public Response listAlbums (
+            @CookieParam("userRole") String userRole
+    ) {
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("guest")){
+            httpStatus = 403;
+        }
         List<Album> albumMap = DataHandler.readAllAlbums();
         Response response = Response
-                .status(200)
+                .status(httpStatus)
                 .entity(albumMap)
                 .build();
         return response;
@@ -45,14 +52,18 @@ public class AlbumService {
     public  Response readAlbum (
             @NotEmpty
             @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("uuid") String albumUUID
+            @QueryParam("uuid") String albumUUID,
+            @CookieParam("userRole") String userRole
     ){
         int httpStatus = 200;
         Album album =  DataHandler.readAlbumByUUID(albumUUID);
-        if (album == null) {
-            httpStatus = 410;
+        if (userRole == null || userRole.equals("guest")){
+            httpStatus = 403;
+        } else {
+            if (album == null) {
+                httpStatus = 410;
+            }
         }
-
         Response response = Response
                 .status(httpStatus)
                 .entity(album)
@@ -75,15 +86,21 @@ public class AlbumService {
             @Pattern(regexp= "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("artistUUID") String artistUUID,
             @FormParam("releaseDate") String releaseDate,
-            @FormParam("songUUIDList") List<String> songUUIDList
+            @FormParam("songUUIDList") List<String> songUUIDList,
+            @CookieParam("userRole") String userRole
     ){
-        album.setAlbumUUID(UUID.randomUUID().toString());
-        album.setArtistUUID(artistUUID);
-        album.setReleaseDateWithString(releaseDate);
-        album.setSongUUIDListWithList(songUUIDList);
-        DataHandler.insertAlbum(album);
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("guest") ||userRole.equals("user")){
+            httpStatus = 403;
+        } else {
+            album.setAlbumUUID(UUID.randomUUID().toString());
+            album.setArtistUUID(artistUUID);
+            album.setReleaseDateWithString(releaseDate);
+            album.setSongUUIDListWithList(songUUIDList);
+            DataHandler.insertAlbum(album);
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -102,19 +119,24 @@ public class AlbumService {
             @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("artistUUID") String artistUUID,
             @FormParam("releaseDate") String releaseDate,
-            @FormParam("songUUIDList") List<String> songUUIDList
+            @FormParam("songUUIDList") List<String> songUUIDList,
+            @CookieParam("userRole") String userRole
     ){
         int httpStatus = 200;
         Album oldAlbum = DataHandler.readAlbumByUUID(album.getAlbumUUID());
-        if (oldAlbum != null) {
-            oldAlbum.setTitle(album.getTitle());
-            oldAlbum.setArtistUUID(artistUUID);
-            oldAlbum.setSongList(album.getSongList());
-            oldAlbum.setReleaseDateWithString(releaseDate);
-            oldAlbum.setSongUUIDListWithList(songUUIDList);
-            DataHandler.updateAlbum();
+        if (userRole == null || userRole.equals("guest") ||userRole.equals("user")){
+            httpStatus = 403;
         } else {
-            httpStatus = 410;
+            if (oldAlbum != null) {
+                oldAlbum.setTitle(album.getTitle());
+                oldAlbum.setArtistUUID(artistUUID);
+                oldAlbum.setSongList(album.getSongList());
+                oldAlbum.setReleaseDateWithString(releaseDate);
+                oldAlbum.setSongUUIDListWithList(songUUIDList);
+                DataHandler.updateAlbum();
+            } else {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)
@@ -133,11 +155,16 @@ public class AlbumService {
     public Response deleteAlbum(
             @NotEmpty
             @Pattern(regexp= "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
-            @QueryParam("uuid") String albumUUID
+            @QueryParam("uuid") String albumUUID,
+            @CookieParam("userRole") String userRole
     ){
         int httpStatus = 200;
-        if (!DataHandler.deleteAlbum(albumUUID)){
-            httpStatus = 410;
+        if (userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.deleteAlbum(albumUUID)) {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)

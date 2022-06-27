@@ -23,6 +23,7 @@ function readAlbums() {
                 return response;
             } else {
                 console.log(response);
+                document.getElementById("albumlist").innerHTML = "Sie sind nicht berechtigt, diese Seite zu sehen!";
             }
         })
         .then(response => response.json())
@@ -45,7 +46,7 @@ function showAlbumlist(data) {
         let row = tBody.insertRow(-1);
 
         let button = document.createElement("button");
-        if (userRole === "user" || userRole === "admin")
+        if (userRole === "admin")
             button.innerHTML = "&#9998;";
         else
             button.innerHTML = "&#128065;";
@@ -71,7 +72,7 @@ function showAlbumlist(data) {
 
     });
 
-    if (userRole === "user" || userRole === "admin") {
+    if (userRole === "admin") {
         document.getElementById("addButton").innerHTML = "<a href='./albumedit.html'>Neues Album</a>";
     }
 }

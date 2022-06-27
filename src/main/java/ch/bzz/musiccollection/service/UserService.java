@@ -49,9 +49,9 @@ public class UserService {
     }
 
     @DELETE
-    @Path("logout")
+    @Path("logoff")
     @Produces
-    public Response logout()
+    public Response login()
     {
         NewCookie roleCookie = new NewCookie(
                 "",
@@ -59,13 +59,14 @@ public class UserService {
                 "/",
                 "",
                 "Logout-Cookie",
-                0,
+                1,
                 false
         );
 
         Response response = Response
                 .status(200)
                 .entity("")
+                .header("Access-Control-Allow-Origin", "*")
                 .cookie(roleCookie)
                 .build();
         return  response;

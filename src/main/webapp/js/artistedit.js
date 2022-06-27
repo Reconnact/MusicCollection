@@ -89,7 +89,7 @@ function showArtist(data) {
     document.getElementById("artistName").value = data.artistName;
     document.getElementById("birthday").value = data.birthday;
 
-    const locked =  !(userRole === "user" || userRole === "admin");
+    const locked =  !(userRole === "admin");
     lockForm("artisteditForm", locked);
 }
 
