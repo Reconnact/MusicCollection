@@ -7,7 +7,6 @@ let delayTimer;
 document.addEventListener("DOMContentLoaded", () => {
 
     readSongs();
-
 });
 
 /**

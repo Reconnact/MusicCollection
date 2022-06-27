@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /**
  * saves the data of an artist
- */ewrwwww
+ */
 function saveArtist(event) {
     event.preventDefault();
     showMessage("", "info");

@@ -89,10 +89,10 @@ function showAlbum(data) {
     document.getElementById("title").value = data.title;
     document.getElementById("releaseDate").value = data.releaseDate;
     document.getElementById("artist").value = data.artistUUID;
-
-    selectedSongs(data.songList)
     const locked =  !(userRole === "user" || userRole === "admin");
     lockForm("albumeditForm", locked);
+    selectedSongs(data.songList)
+
 }
 
 

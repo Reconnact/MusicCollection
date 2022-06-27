@@ -53,9 +53,20 @@ public class UserService {
     @Produces
     public Response logout()
     {
+        NewCookie roleCookie = new NewCookie(
+                "",
+                "",
+                "/",
+                "",
+                "Logout-Cookie",
+                0,
+                false
+        );
+
         Response response = Response
                 .status(200)
                 .entity("")
+                .cookie(roleCookie)
                 .build();
         return  response;
 
