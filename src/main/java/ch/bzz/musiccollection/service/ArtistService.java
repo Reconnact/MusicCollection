@@ -53,14 +53,14 @@ public class ArtistService {
             @QueryParam("uuid") String artistUUID,
             @CookieParam("userRole") String userRole
     ){
-        Artist artist = null;
+        UUID.fromString(artistUUID);
+        Artist artist = DataHandler.readArtistByUUID(artistUUID);
         int httpStatus = 200;
         if (userRole == null || userRole.equals("guest")){
             httpStatus = 403;
         } else {
             try {
-                UUID.fromString(artistUUID);
-                artist = DataHandler.readArtistByUUID(artistUUID);
+
                 if (artist == null) {
                     httpStatus = 404;
                 }
